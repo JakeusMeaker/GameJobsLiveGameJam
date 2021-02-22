@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &796592877556254582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796592877556254576}
+  - component: {fileID: 796592877556254583}
+  m_Layer: 0
+  m_Name: CharacterManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &796592877556254576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796592877556254582}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &796592877556254583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796592877556254582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b573ddc1fa6b4b42a43e7594c4f358b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  traitButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterNames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterList:
+  - {fileID: 11400000, guid: eaa0669da9da4c14d9cb70d88c8ff919, type: 2}
+  - {fileID: 11400000, guid: 9911ec6919d11de44b77e9c8c8198500, type: 2}
+  - {fileID: 11400000, guid: 3fb8b10e1675975448f77a6d19d0d188, type: 2}
+  - {fileID: 11400000, guid: 4d9a5a5231d150d4c84ba3f997dcb3be, type: 2}
+  - {fileID: 11400000, guid: e24b05e72753bf844897a57aa9bf4f2e, type: 2}
+  - {fileID: 11400000, guid: 953829d9f1ff2d343a791345ea896a07, type: 2}
+  - {fileID: 11400000, guid: bd9e5ed63d1afc540bd84a237a2beea3, type: 2}
+  - {fileID: 11400000, guid: ca9846445963eac49a5950fe01fa985f, type: 2}
+  - {fileID: 11400000, guid: e7845b8155c009844b5ca4b12f69a254, type: 2}
+  selectedCharacters: []
+  selectedTraits: 

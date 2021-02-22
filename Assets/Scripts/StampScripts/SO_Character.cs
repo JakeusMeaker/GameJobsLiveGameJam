@@ -25,18 +25,19 @@ public class SO_Character : ScriptableObject
 
     void GenerateName()
     {
-        int _rFN = System.Enum.GetValues(typeof(E_FirstName)).Length - 1;
+        int _rFN = System.Enum.GetValues(typeof(E_FirstName)).Length;
         E_FirstName _fn = (E_FirstName)Random.Range(0, _rFN);
 
-        int _rLN = System.Enum.GetValues(typeof(E_LastName)).Length - 1;
+        int _rLN = System.Enum.GetValues(typeof(E_LastName)).Length;
         E_LastName _ln = (E_LastName)Random.Range(0, _rLN);
 
+        //characterName = _fn.ToString();        
         characterName = _fn.ToString() + " " + _ln.ToString();
     }
 
     void GenerateTraits()
     {
-        int _random = System.Enum.GetValues(typeof(E_Trait)).Length - 1;
+        int _random = System.Enum.GetValues(typeof(E_Trait)).Length;
         firstTrait = (E_Trait)Random.Range(0, _random);
         secondTrait = (E_Trait)Random.Range(0, _random);
         while (firstTrait == secondTrait)
