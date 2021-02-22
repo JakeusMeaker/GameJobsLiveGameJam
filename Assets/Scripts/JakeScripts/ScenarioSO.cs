@@ -14,25 +14,4 @@ public class ScenarioSO : ScriptableObject
     public string partyCriticalFail;
 
     public E_Trait traitToPass;
-
-
-    public string Sucess(string characterName)
-    {
-        return characterName + ' ' + passText;
-    }
-
-    public string Fail(string characterName)
-    {
-        return characterName + ' ' + failText;
-    }
-
-    public string CharacterCriticalFail(string characterName)
-    {
-        return characterName + ' ' + characterCriticalFail;
-    }
-
-    public string PartyCriticalFail(string characterName)
-    {
-        return characterName + ' ' + partyCriticalFail;
-    }
 }

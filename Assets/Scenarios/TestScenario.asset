@@ -10,11 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
-  m_Name: Scenario
+  m_Name: TestScenario
   m_EditorClassIdentifier: 
-  scenarioText: 
-  passText: 
-  failText: 
-  characterCriticalFail: 
-  partyCriticalFail: 
-  traitToPass: 0
+  scenarioText: 'A tightrope stretches into the inky darkness. '
+  passText: '{0} gracefully walks the rope. Upon reaching the other edge they find
+    a ladder propped up there, allowing the pit to be traversed with ease.'
+  failText: '{0} walks but a few steps before they teeter sideways and fall into
+    the darkness with a cry. There is silence for a long minute before a ladder emerges
+    from the shade, followed shortly by a grimacing {0}.'
+  characterCriticalFail: '{0} walks but a few steps before they teeter sideways and
+    fall into the darkness with a cry. There is a sickening crunch, and then silence
+    for a long minute before a ladder emerges from the darkness. It seems [Name]
+    managed to move it before succumbing to their injuries.'
+  partyCriticalFail: '{0} walks but a few steps before they teeter sideways and fall
+    into the darkness with a cry. There is a sickening crunch, and then silence. '
+  traitToPass: 2

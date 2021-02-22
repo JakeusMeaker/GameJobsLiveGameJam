@@ -56,6 +56,8 @@ public class CharacterManager : MonoBehaviour
         {
             characterNames[i].text = selectedCharacters[i].characterName;
         }
+
+        ScenarioManager.AStartScenario();
     }
 
     //THIS FUNCTION IS WHERE WE CHOOSE THE SELECTED TRAIT TO USE
@@ -64,7 +66,7 @@ public class CharacterManager : MonoBehaviour
         int _charNumber = (int)buttonPosition / 2; //This is the Character that used this. Can use this to decrement health/stamina.
 
         string debugLog = selectedTraits[buttonPosition].ToString() + " was used by " + selectedCharacters[_charNumber].characterName;
-
+        ScenarioManager.ATraitSelected(selectedTraits[buttonPosition], selectedCharacters[_charNumber]);
         Debug.Log(debugLog);
     }
 }
