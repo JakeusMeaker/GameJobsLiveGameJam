@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
   m_Name: TestScenario
   m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: cdf7a6b7e1723124fafa52591f8c6441, type: 3}
+  foregroundImage: {fileID: 0}
   scenarioText: 'A tightrope stretches into the inky darkness. '
   passText: '{0} gracefully walks the rope. Upon reaching the other edge they find
     a ladder propped up there, allowing the pit to be traversed with ease.'

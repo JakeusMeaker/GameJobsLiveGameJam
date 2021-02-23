@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class ScenarioManager : MonoBehaviour
 {
+    public SpriteRenderer backgroundSprite;
+    public SpriteRenderer foregroundSprite;
+
     [Header("Scenario Generation"), Range(3, 9)]
     public int amountOfScenarios;
 
@@ -41,7 +44,7 @@ public class ScenarioManager : MonoBehaviour
     {
         while (scenarioQueue.Count < amountOfScenarios)
         {
-            if(scenarioList.Count == 1)
+            if (scenarioList.Count == 1)
             {
                 scenarioQueue.Enqueue(scenarioList[0]);
                 return;
@@ -66,9 +69,23 @@ public class ScenarioManager : MonoBehaviour
 
     public void NextScenario()
     {
-        //Fade transition 
+        StartCoroutine(IE_LoadNextScene());
+    }
+
+    IEnumerator IE_LoadNextScene()
+    {
+        BlackoutAnimator.instance.FadeToBlack();
+        yield return new WaitForSeconds(1.5f);
+        scenarioTextBox.text = "";
+        LoadNextScenario();
+        BlackoutAnimator.instance.FadeFromBlack();
+    }
+
+    public void LoadNextScenario()
+    {
         if (scenarioQueue.Count > 0)
-        {   scenarioQueue.Dequeue();
+        {
+            scenarioQueue.Dequeue();
             currentScenario = scenarioQueue.Peek();
             Invoke("StartCurrentScenario", scenarioChangeTime);
         }
@@ -81,6 +98,11 @@ public class ScenarioManager : MonoBehaviour
 
     public void StartCurrentScenario()
     {
+        if (currentScenario.backgroundImage != null)
+            backgroundSprite.sprite = currentScenario.backgroundImage;
+        if (currentScenario.foregroundImage != null)
+            foregroundSprite.sprite = currentScenario.foregroundImage;
+
         StartCoroutine(TextTyper(currentScenario.scenarioText));
     }
 
@@ -104,14 +126,14 @@ public class ScenarioManager : MonoBehaviour
     public void TraitSelected(E_Trait trait, SO_Character character)
     {
 
-        if(trait == scenarioQueue.Peek().traitToPass)
+        if (trait == scenarioQueue.Peek().traitToPass)
         {
             StartCoroutine(TextTyper(string.Format(currentScenario.passText, character.characterName)));
             changeScenario = true;
         }
         else
         {
-            if(character.stamina > 0)
+            if (character.stamina > 0)
             {
                 StartCoroutine(TextTyper(string.Format(currentScenario.failText, character.characterName)));
                 character.stamina--;
