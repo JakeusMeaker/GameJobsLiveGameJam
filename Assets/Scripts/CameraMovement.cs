@@ -6,12 +6,14 @@ public class CameraMovement : MonoBehaviour
 {
     public int speed = 100;
 
+    public float range;
+
     void Update()
     { 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
         mousePos.z = 0;
-        mousePos.x = -mousePos.x * 0.03f;
-        mousePos.y = -mousePos.y * 0.03f + 1;
+        mousePos.x = -mousePos.x * range;
+        mousePos.y = -mousePos.y * range + 1;
         transform.position = Vector3.Lerp(transform.position, mousePos, speed * Time.deltaTime);
     }
 }
