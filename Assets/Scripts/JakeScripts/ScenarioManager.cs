@@ -15,25 +15,37 @@ public class ScenarioManager : MonoBehaviour
     [Range(0.5f, 10f)]
     public float scenarioChangeTime;
 
+    public int healthGainInRestRoomAmount;
+    public int staminaGainInRestRoomAmount;
+
     [SerializeField]
     private List<ScenarioSO> scenarioList = new List<ScenarioSO>();
 
     private Queue<ScenarioSO> scenarioQueue = new Queue<ScenarioSO>();
     private ScenarioSO currentScenario;
-    private E_Trait lastTraidUsed;
+    private E_Trait lastTraitUsed;
     private bool changeScenario = false;
 
     [Header("Scenario UI Elements")]
     public Text scenarioTextBox;
+    public GameObject restRoomContinueButton;
 
     private int partyMembersDown = 0;
 
     public static Action<E_Trait, SO_Character> ATraitSelected;
     public static Action AStartScenario;
 
+    [Header("Trait Percentages"), Range(0f, 1f)]
+    public float secondaryTraitSuccessPercent;
+    private E_PassType passType;
+
+    private CharacterManager characterManager = null;
+    private bool canUseTrait = true;
+
     // Start is called before the first frame update
     void Start()
     {
+        characterManager = GetComponent<CharacterManager>();
         ATraitSelected += TraitSelected;
         AStartScenario += StartCurrentScenario;
         GenerateScenarioQueue();
@@ -53,16 +65,16 @@ public class ScenarioManager : MonoBehaviour
             ScenarioSO scenario = scenarioList[UnityEngine.Random.Range(0, scenarioList.Count)];
             if (scenarioQueue != null)
             {
-                if (scenario.traitToPass != lastTraidUsed)
+                if (scenario.traitToPass != lastTraitUsed)
                 {
                     scenarioQueue.Enqueue(scenario);
-                    lastTraidUsed = scenario.traitToPass;
+                    lastTraitUsed = scenario.traitToPass;
                 }
             }
             else
             {
                 scenarioQueue.Enqueue(scenario);
-                lastTraidUsed = scenario.traitToPass;
+                lastTraitUsed = scenario.traitToPass;
             }
         }
     }
@@ -79,6 +91,7 @@ public class ScenarioManager : MonoBehaviour
         scenarioTextBox.text = "";
         LoadNextScenario();
         BlackoutAnimator.instance.FadeFromBlack();
+        canUseTrait = true;
     }
 
     public void LoadNextScenario()
@@ -87,6 +100,25 @@ public class ScenarioManager : MonoBehaviour
         {
             scenarioQueue.Dequeue();
             currentScenario = scenarioQueue.Peek();
+            if (currentScenario.isRestRoom)
+            {
+                restRoomContinueButton.SetActive(true);
+                canUseTrait = false;
+
+                //Probably a more elegant way of doing this
+                for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
+                {
+                    if (characterManager.selectedCharacters[i].health < 3)
+                        characterManager.selectedCharacters[i].health += healthGainInRestRoomAmount;
+                    if (characterManager.selectedCharacters[i].stamina < 3)
+                        characterManager.selectedCharacters[i].stamina += staminaGainInRestRoomAmount;
+                }
+            }
+            else
+            {
+                restRoomContinueButton.SetActive(false);
+                canUseTrait = true;
+            }
             Invoke("StartCurrentScenario", scenarioChangeTime);
         }
         else
@@ -103,6 +135,8 @@ public class ScenarioManager : MonoBehaviour
         if (currentScenario.foregroundImage != null)
             foregroundSprite.sprite = currentScenario.foregroundImage;
 
+        
+
         StartCoroutine(TextTyper(currentScenario.scenarioText));
     }
 
@@ -114,45 +148,128 @@ public class ScenarioManager : MonoBehaviour
             scenarioTextBox.text += textToType[i];
             yield return new WaitForSeconds(0.05f);
         }
+
         if (changeScenario)
         {
             changeScenario = false;
             Invoke("NextScenario", scenarioChangeTime);
         }
-        else
+        else        
             yield return null;
     }
 
     public void TraitSelected(E_Trait trait, SO_Character character)
     {
+        /* Rewrite so that:
+         * - The main trait is guarenteed success - Done
+         * - The Secondary traits get individual win text - Done
+         * - Secondary's have percentage to fail - Done
+         * - Lucky trait always has 50% chance of winning - Done
+         * - Lucky has generic lucky win text - Done
+         * - Fail conditions are checked and accurately respond to the players condition - Done
+         * 
+         *  Will review when less sleepy
+         */
 
-        if (trait == scenarioQueue.Peek().traitToPass)
+        if (canUseTrait)
         {
-            StartCoroutine(TextTyper(string.Format(currentScenario.passText, character.characterName)));
-            changeScenario = true;
-        }
-        else
-        {
-            if (character.stamina > 0)
+            canUseTrait = false;
+            if (trait == scenarioQueue.Peek().traitToPass)
             {
-                StartCoroutine(TextTyper(string.Format(currentScenario.failText, character.characterName)));
-                character.stamina--;
-                if (character.stamina == 0)
-                    partyMembersDown++;
-                changeScenario = true;
+                passType = E_PassType.TraitPass;
             }
-            else
+            else if (trait == scenarioQueue.Peek().secondaryTraits[0])
             {
-                if (partyMembersDown < 3)
+                if (UnityEngine.Random.value > secondaryTraitSuccessPercent)
                 {
-                    StartCoroutine(TextTyper(string.Format(currentScenario.characterCriticalFail, character.characterName)));
-                    changeScenario = true;
+                    passType = E_PassType.Secondary1Pass;
                 }
                 else
                 {
-                    StartCoroutine(TextTyper(string.Format(currentScenario.partyCriticalFail, character.name)));
-                    changeScenario = true;
+                    passType = E_PassType.Fail;
                 }
+            }
+            else if (trait == scenarioQueue.Peek().secondaryTraits[1])
+            {
+                if (UnityEngine.Random.value > secondaryTraitSuccessPercent)
+                {
+                    passType = E_PassType.Secondary2Pass;
+                }
+                else
+                {
+                    passType = E_PassType.Fail;
+                }
+            }
+            else if (trait == E_Trait.Lucky)
+            {
+                if (UnityEngine.Random.value > 0.5f)
+                {
+                    passType = E_PassType.LuckyPass;
+                }
+                else
+                {
+                    passType = E_PassType.Fail;
+                }
+            }
+            else
+            {
+                passType = E_PassType.Fail;
+            }
+
+            switch (passType)
+            {
+                case E_PassType.TraitPass:
+                    character.stamina--;    //UI changes to stamina bar should be done here
+
+                    StartCoroutine(TextTyper(string.Format(currentScenario.passTraitText, character.characterName)));
+                    changeScenario = true;
+                    break;
+
+                case E_PassType.Secondary1Pass:
+                    character.stamina--;    //UI changes to stamina bar should be done here
+
+                    StartCoroutine(TextTyper(string.Format(currentScenario.secondary1PassText, character.characterName)));
+                    changeScenario = true;
+                    break;
+
+                case E_PassType.Secondary2Pass:
+                    character.stamina--;    //UI changes to stamina bar should be done here
+
+                    StartCoroutine(TextTyper(string.Format(currentScenario.secondary2PassText, character.characterName)));
+                    changeScenario = true;
+                    break;
+
+                case E_PassType.LuckyPass:
+                    character.stamina--;    //UI changes to stamina bar should be done here
+
+                    StartCoroutine(TextTyper(string.Format(currentScenario.luckyPassText, character.characterName)));
+                    changeScenario = true;
+                    break;
+
+                case E_PassType.Fail:
+                    if (character.health > 0)
+                    {
+                        StartCoroutine(TextTyper(string.Format(currentScenario.failText, character.characterName)));
+                        character.stamina--;
+                        character.health--;
+                        if (character.health == 0)
+                            partyMembersDown++;
+                        changeScenario = true;
+                    }
+                    else
+                    {
+                        if (partyMembersDown < 3)
+                        {
+                            StartCoroutine(TextTyper(string.Format(currentScenario.characterCriticalFail, character.characterName)));
+                            changeScenario = true;
+                        }
+                        else
+                        {
+                            StartCoroutine(TextTyper(string.Format(currentScenario.partyCriticalFail, character.name)));
+                            changeScenario = true;
+                        }
+                    }
+                    break;
             }
         }
     }

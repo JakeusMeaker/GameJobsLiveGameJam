@@ -100,3 +100,11 @@ public enum E_LastName
     Willis
 }
 
+public enum E_PassType
+{
+    TraitPass,
+    Secondary1Pass,
+    Secondary2Pass,
+    LuckyPass,
+    Fail
+}

@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundImage: {fileID: 21300000, guid: cdf7a6b7e1723124fafa52591f8c6441, type: 3}
   foregroundImage: {fileID: 0}
+  isRestRoom: 0
   scenarioText: 'A tightrope stretches into the inky darkness. '
-  passText: '{0} gracefully walks the rope. Upon reaching the other edge they find
-    a ladder propped up there, allowing the pit to be traversed with ease.'
+  passTraitText: Perfect Pass
+  secondary1PassText: Strong Pass
+  secondary2PassText: Logical Pss
+  luckyPassText: Lucky Pass
   failText: '{0} walks but a few steps before they teeter sideways and fall into
     the darkness with a cry. There is silence for a long minute before a ladder emerges
     from the shade, followed shortly by a grimacing {0}.'
@@ -27,3 +30,4 @@ MonoBehaviour:
   partyCriticalFail: '{0} walks but a few steps before they teeter sideways and fall
     into the darkness with a cry. There is a sickening crunch, and then silence. '
   traitToPass: 2
+  secondaryTraits: 0000000007000000

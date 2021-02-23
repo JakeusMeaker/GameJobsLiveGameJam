@@ -8,11 +8,21 @@ public class ScenarioSO : ScriptableObject
     public Sprite backgroundImage;
     public Sprite foregroundImage;
 
+    public bool isRestRoom;
+
     [TextArea]
     public string scenarioText;
 
     [TextArea]
-    public string passText;
+    public string passTraitText;
+    [TextArea]
+    public string secondary1PassText;
+    [TextArea]
+    public string secondary2PassText;
+    
+    [TextArea]
+    public string luckyPassText;
+
     [TextArea]
     public string failText;
 
@@ -22,6 +32,6 @@ public class ScenarioSO : ScriptableObject
     public string partyCriticalFail;
 
     public E_Trait traitToPass; //80% Success Rate
-    public E_Trait[] moderateTraits; //50% Success Rate
+    public E_Trait[] secondaryTraits = new E_Trait[2]; //50% Success Rate
     
 }
