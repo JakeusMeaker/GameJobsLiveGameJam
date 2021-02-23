@@ -14,9 +14,10 @@
     //Social
     Leader,
     Encouraging,
-    Persuasive
+    Persuasive,
 
     //Misc
+    Lucky
 }
 
 public enum E_FirstName
