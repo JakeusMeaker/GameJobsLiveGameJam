@@ -13,6 +13,14 @@ public class CharacterManager : MonoBehaviour
     public Text[] traitButtons;
     public Text[] characterNames;
 
+    [Header("Game Scene Setup")]
+    public Sprite[] SideFacingCharacterSprites;
+    public Sprite[] FrontFacingCharacterSprites;
+    public SpriteRenderer character1Sprite;
+    public SpriteRenderer character2Sprite;
+    public SpriteRenderer character3Sprite;
+
+
     public SO_Character[] characterList;
     public List<SO_Character> selectedCharacters = new List<SO_Character>();
     public List<E_Trait> selectedTraits = new List<E_Trait>(6);
@@ -38,10 +46,19 @@ public class CharacterManager : MonoBehaviour
         if (selectedCharacters.Count == 3)
         {
             Debug.Log("CHARACTERS SELECTED");
-            TransitionToGame();
+            StartCoroutine(IE_GameTransition());
             // Move Forwards
         }
     }
+
+    IEnumerator IE_GameTransition()
+    {
+        BlackoutAnimator.instance.FadeToBlack();
+        yield return new WaitForSeconds (1.5f);
+        TransitionToGame();
+        BlackoutAnimator.instance.FadeFromBlack();
+    }
+
 
     void TransitionToGame()
     {
@@ -56,6 +73,10 @@ public class CharacterManager : MonoBehaviour
         {
             characterNames[i].text = selectedCharacters[i].characterName;
         }
+
+        character1Sprite.sprite = SideFacingCharacterSprites[Random.Range(0, SideFacingCharacterSprites.Length)];
+        character2Sprite.sprite = FrontFacingCharacterSprites[Random.Range(0, FrontFacingCharacterSprites.Length)];
+        character3Sprite.sprite = SideFacingCharacterSprites[Random.Range(0, SideFacingCharacterSprites.Length)];
 
         ScenarioManager.AStartScenario();
     }

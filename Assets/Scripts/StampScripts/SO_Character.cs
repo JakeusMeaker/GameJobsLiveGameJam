@@ -20,7 +20,7 @@ public class SO_Character : ScriptableObject
         health = 3;
         stamina = 3;
 
-        Debug.Log(characterName + ", " + firstTrait + ", " + secondTrait);
+        //Debug.Log(characterName + ", " + firstTrait + ", " + secondTrait);
     }
 
     void GenerateName()
