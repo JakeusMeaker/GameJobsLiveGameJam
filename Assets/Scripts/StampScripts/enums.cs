@@ -44,7 +44,24 @@ public enum E_FirstName
     Sean,
     Shaun,
     Shawn,
-    Snerd
+    Snerd,
+    Agent,
+    Todd,
+    Bobson,
+    Mario,
+    Karen,
+    J,
+    Mr,
+    Mrs,
+    Miss,
+    Mx,
+    Dwayne,
+    Jack,
+    Guy,
+    Chuck,
+    Curly,
+    Hugh,
+    Bruce
 }
 
 public enum E_LastName
@@ -61,6 +78,25 @@ public enum E_LastName
     Johnson,
     Ramsay,
     Pilkington,
-    Aperds
+    Aperds,
+    Bonzalez,
+    Dustice,
+    McDichael,
+    Dugnutt,
+    Rortugal,
+    Dandleton,
+    Bennings,
+    Truk,
+    Sweemey,
+    McScriff,
+    Misterson,
+    Pendleton,
+    Pendlesmith,
+    Black,
+    Teek,
+    Mandude,
+    Moneybags,
+    Deeni,
+    Willis
 }
 
