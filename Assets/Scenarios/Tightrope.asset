@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
   m_Name: Tightrope
   m_EditorClassIdentifier: 
-  backgroundImage: {fileID: 0}
-  foregroundImage: {fileID: 21300000, guid: fae88c963b2543f4c8e6d058d159718e, type: 3}
+  backgroundImage: {fileID: 21300000, guid: fae88c963b2543f4c8e6d058d159718e, type: 3}
+  foregroundImage: {fileID: 0}
   isRestRoom: 0
   scenarioText: ' A tightrope stretches into the inky darkness. '
   passTraitText: '{0} gracefully walks the rope, not even breaking a sweat. Upon
