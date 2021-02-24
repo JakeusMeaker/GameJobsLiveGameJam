@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: Friendly Ghost
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 00503c1825a6c074a8418598bdf3a648, type: 3}
+  foregroundImage: {fileID: 21300000, guid: b2735c8d202bd2f45869e0b2fe2a0613, type: 3}
+  isRestRoom: 0
+  scenarioText: A curious spirit immediately floats forward, demanding attention.
+    It seems fascinated by life.
+  passTraitText: '{0} calmly explains that you need to pass through the room. The
+    spirit seems disappointed, but floats lazily away, letting them pass.'
+  secondary1PassText: "{0} walks up to the spirit and stares right back at it. It
+    doesn\u2019t seem discouraged, and it phases into their body, but {0} remains
+    unmoved, taking deep breaths, and keeping their gaze focused. After a moment
+    the spirit seems bored, and floats lazily away."
+  secondary2PassText: "{0} pulls a sandwich from their bag, offering it to the delighted
+    spirit. It phases into the sandwich, which dances out of {0}\u2019s hand and
+    floats around the room. They decide they had best move on while the spirit is
+    distracted."
+  luckyPassText: "{0} cautiously approaches the spirit, which promptly phases into
+    their body. {0}\u2019s eyes begin to roll back in their head, but then they shake
+    their head, as if coming to their senses. The spirit does not reappear, but {0}
+    seems to be eager to continue, with renewed enthusiasm."
+  failText: "{0} frustratedly shoos away the spirit which promptly glides towards
+    them phasing into their body. {0}\u2019s eyes roll up into their head, and their
+    limbs bend at strange angles as they take a few shambling steps. After a few
+    moments the spirit seems bored and floats away, leaving poor {0} to limp to the
+    door."
+  characterCriticalFail: "{0} frustratedly shoos away the spirit which promptly glides
+    towards them phasing into their body. {0}\u2019s eyes roll up into their head,
+    and their limbs bend at strange angles, cracking and contorting beyond what should
+    be possible. Their lips twist and a voice both familiar and strange emanates
+    from their mouth. \u201CThis is mine now.\u201D It seems {0} will have to be
+    left behind. "
+  partyCriticalFail: "{0} frustratedly shoos away the spirit which promptly glides
+    towards them phasing into their body. {0}\u2019s eyes roll up into their head,
+    and their limbs bend at strange angles, cracking and contorting beyond what should
+    be possible. Their lips twist and a voice both familiar and strange emanates
+    from their mouth. \u201CSuch a lovely doll.\u201D"
+  traitToPass: 5
+  secondaryTraits: 0300000008000000
