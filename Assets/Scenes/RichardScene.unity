@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 539699305}
   - component: {fileID: 539699304}
   - component: {fileID: 539699303}
+  - component: {fileID: 539699306}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -283,6 +284,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &539699306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539699302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b59629ccfda0a46878ffd4040e89f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &550465461 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 10447093543787464, guid: b073c2220aeb6c244932cd3f4aabfeba,
@@ -1908,6 +1921,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1625244836}
+  - component: {fileID: 1625244837}
   m_Layer: 0
   m_Name: PlayerSprites
   m_TagString: Untagged
@@ -1932,6 +1946,25 @@ Transform:
   m_Father: {fileID: 954174654}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1625244837
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625244835}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d6a526482eb78d46a5862697ee71de4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1642626335 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3736654126170786443, guid: b073c2220aeb6c244932cd3f4aabfeba,
@@ -3052,6 +3085,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1164861301623372646, guid: a079f739631f1d84cad5f58535002897,
         type: 3}
+    - target: {fileID: 796592877556254583, guid: e56beab46ead70a40aa4d1ea4ddc6f3f,
+        type: 3}
+      propertyPath: charSpriteAnim
+      value: 
+      objectReference: {fileID: 1625244837}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e56beab46ead70a40aa4d1ea4ddc6f3f, type: 3}
 --- !u!1001 &1268069312385510505
