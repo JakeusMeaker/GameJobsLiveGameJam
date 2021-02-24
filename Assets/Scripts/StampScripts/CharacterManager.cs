@@ -11,6 +11,7 @@ public class CharacterManager : MonoBehaviour
         instance = this;
     }
 
+    public Animator charSpriteAnim;
 
     public Sprite fullHealthSprite;
     public Sprite emptyHealthSprite;
@@ -124,11 +125,18 @@ public class CharacterManager : MonoBehaviour
     public void AdjustHealth(SO_Character _char, int adjust)
     {
         _char.health += adjust;
+        if (adjust < 0)
+        {
+            CameraShake.instance.ShakeCamera(.5f, .5f);
+        }
+
         for (int i = 0; i < characterUI.Length; i++)
         {
             if (_char == characterUI[i].thisCharacter)
             {
                 characterUI[i].health[_char.health].sprite = emptyHealthSprite;
+                charSpriteAnim.SetInteger("CharacterDamaged", i);
+                charSpriteAnim.SetTrigger("Damage");
             }
         }
     }
