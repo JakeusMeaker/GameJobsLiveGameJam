@@ -50,6 +50,7 @@ public class ScenarioManager : MonoBehaviour
         AStartScenario += StartCurrentScenario;
         GenerateScenarioQueue();
         currentScenario = scenarioQueue.Peek();
+        LoadScenarioSprites();
     }
 
     private void GenerateScenarioQueue()
@@ -87,7 +88,7 @@ public class ScenarioManager : MonoBehaviour
     IEnumerator IE_LoadNextScene()
     {
         BlackoutAnimator.instance.FadeToBlack();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSecondsRealtime(1.5f);
         scenarioTextBox.text = "";
         LoadNextScenario();
         BlackoutAnimator.instance.FadeFromBlack();
@@ -109,9 +110,9 @@ public class ScenarioManager : MonoBehaviour
                 for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
                 {
                     if (characterManager.selectedCharacters[i].health < 3)
-                        characterManager.selectedCharacters[i].health += healthGainInRestRoomAmount;
+                        characterManager.AdjustHealth(characterManager.selectedCharacters[i], healthGainInRestRoomAmount);
                     if (characterManager.selectedCharacters[i].stamina < 3)
-                        characterManager.selectedCharacters[i].stamina += staminaGainInRestRoomAmount;
+                        characterManager.AdjustStamina(characterManager.selectedCharacters[i], staminaGainInRestRoomAmount);
                 }
             }
             else
@@ -119,6 +120,7 @@ public class ScenarioManager : MonoBehaviour
                 restRoomContinueButton.SetActive(false);
                 canUseTrait = true;
             }
+            LoadScenarioSprites();
             Invoke("StartCurrentScenario", scenarioChangeTime);
         }
         else
@@ -126,17 +128,22 @@ public class ScenarioManager : MonoBehaviour
             //End game condititions here 
 
         }
+      }
+
+    void LoadScenarioSprites()
+    {
+        if (currentScenario.backgroundImage != null)
+            backgroundSprite.sprite = currentScenario.backgroundImage;
+        else
+            backgroundSprite.sprite = null;
+        if (currentScenario.foregroundImage != null)
+            foregroundSprite.sprite = currentScenario.foregroundImage;
+        else
+            foregroundSprite.sprite = null;
     }
 
     public void StartCurrentScenario()
     {
-        if (currentScenario.backgroundImage != null)
-            backgroundSprite.sprite = currentScenario.backgroundImage;
-        if (currentScenario.foregroundImage != null)
-            foregroundSprite.sprite = currentScenario.foregroundImage;
-
-        
-
         StartCoroutine(TextTyper(currentScenario.scenarioText));
     }
 
@@ -219,28 +226,32 @@ public class ScenarioManager : MonoBehaviour
             switch (passType)
             {
                 case E_PassType.TraitPass:
-                    character.stamina--;    //UI changes to stamina bar should be done here
+                    //character.stamina--;    //UI changes to stamina bar should be done here
+                    characterManager.AdjustStamina(character, -1);
 
                     StartCoroutine(TextTyper(string.Format(currentScenario.passTraitText, character.characterName)));
                     changeScenario = true;
                     break;
 
                 case E_PassType.Secondary1Pass:
-                    character.stamina--;    //UI changes to stamina bar should be done here
+                    //character.stamina--;    //UI changes to stamina bar should be done here
+                    characterManager.AdjustStamina(character, -1);
 
                     StartCoroutine(TextTyper(string.Format(currentScenario.secondary1PassText, character.characterName)));
                     changeScenario = true;
                     break;
 
                 case E_PassType.Secondary2Pass:
-                    character.stamina--;    //UI changes to stamina bar should be done here
+                    //character.stamina--;    //UI changes to stamina bar should be done here
+                    characterManager.AdjustStamina(character, -1);
 
                     StartCoroutine(TextTyper(string.Format(currentScenario.secondary2PassText, character.characterName)));
                     changeScenario = true;
                     break;
 
                 case E_PassType.LuckyPass:
-                    character.stamina--;    //UI changes to stamina bar should be done here
+                    //character.stamina--;    //UI changes to stamina bar should be done here
+                    characterManager.AdjustStamina(character, -1);
 
                     StartCoroutine(TextTyper(string.Format(currentScenario.luckyPassText, character.characterName)));
                     changeScenario = true;
@@ -250,8 +261,8 @@ public class ScenarioManager : MonoBehaviour
                     if (character.health > 0)
                     {
                         StartCoroutine(TextTyper(string.Format(currentScenario.failText, character.characterName)));
-                        character.stamina--;
-                        character.health--;
+                        characterManager.AdjustStamina(character, -1);
+                        characterManager.AdjustHealth(character, -1);
                         if (character.health == 0)
                             partyMembersDown++;
                         changeScenario = true;

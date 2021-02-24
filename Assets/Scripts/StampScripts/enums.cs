@@ -1,23 +1,16 @@
 ﻿public enum E_Trait
 {
-    //Physical
     Strong,
     Tough,
-    Agile,
-    Limber,
-
-    //Mental
+    Nimble,
     Brave,
     Intelligent,
-    Educated,
-    Logical,
-    //Social
-    Leader,
-    Encouraging,
-    Persuasive,
-
-    //Misc
-    Lucky
+    Charistmatic,
+    Sneaky,
+    Lucky,
+    Kind,
+    Obversvant,
+    Ruthless
 }
 
 public enum E_FirstName
@@ -61,7 +54,11 @@ public enum E_FirstName
     Chuck,
     Curly,
     Hugh,
-    Bruce
+    Bruce,
+    Codey,
+    Codie,
+    Kodi,
+    Kodey
 }
 
 public enum E_LastName

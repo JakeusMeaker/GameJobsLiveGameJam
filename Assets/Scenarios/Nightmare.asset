@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: Nightmare
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 618bb038271e5ae49b44451192128242, type: 3}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 0
+  scenarioText: The exit is blocked by a writhing, formless mass of eyes, the stuff
+    of pure nightmare. Upon drawing closer, it fills the mind with visions of their
+    darkest fears.
+  passTraitText: "{0} steps forward and their knees begin to buckle, but they remain
+    standing. Their eyes are narrowed, and remain clear and present. The mass\u2019
+    own many eyes are wild. Some look confused, others angry. Eventually it seems
+    to let out a puff of air, as if sighing, and fades rapidly into nothingness.
+    {0} smiles in satisfaction, striding confidently to the door."
+  secondary1PassText: "{0} steps forward and falls to their knees, teeth gritted.
+    Their eyes are wide and unseeing, and they let out a pained groan, as they begin
+    to shake and shudder. But then, the mass too begins to shake, it\u2019s own many
+    eyes wide and panicked. All of a sudden, there is a loud pop as the mass bursts
+    outward, rapidly fading to nothing in the air. {0} stands slowly and nods. They\u2019re
+    okay. It\u2019s over."
+  secondary2PassText: "{0} steps forward and falls to their knees, hands clasped
+    over their mouth. Their eyes are wide and unseeing, tears stream down their cheeks
+    as they shake softly... Then, the mass begins to fade, it\u2019s many eyes closing
+    as it\u2019s body crumbles to fine dust. {0} stands slowly and lets out a breath,
+    a sad smile on their face. It\u2019s over."
+  luckyPassText: "{0} steps forward and falls to their knees, breathing heavily.
+    Their eyes are wide and unseeing, mouth open wide as they begin to\u2026 laugh?
+    A little at first, but soon they are guffawing, tears rolling down their cheeks. 
+    The mass\u2019 many eyes at first look confused, and then a little embarrassed.
+    All of a sudden, all of it\u2019s many eyes roll in unison and it rapidly fades
+    to nothing in the air. {0} stands slowly and wipes a tear from their eye, grinning.
+    Perhaps the creature made some kind of mistake."
+  failText: "{0} steps forward and falls to their knees, breathing heavily. Their
+    eyes are wide and unseeing, mouth open wide as they begin to scream, shudder
+    and shake. Their hands wave frantically, as if fending off an invisible enemy,
+    but there can be no defence against their own mind. The mass\u2019 many eyes
+    narrow, and then the whole being begins to fade into nothingness. {0} takes a
+    minute to come to their senses, shakily getting to their feet, their face deathly
+    pale. It\u2019s over, but the creature took its toll."
+  characterCriticalFail: "{0} steps forward and falls to their knees, breathing heavily.
+    Their eyes are wide and unseeing, mouth open wide as they begin to scream, shudder
+    and shake. Their hands wave frantically, as if fending off an invisible enemy,
+    but there can be no defence against their own mind. The mass\u2019 many eyes
+    narrow, and then the whole being begins to fade into nothingness. Several minutes
+    pass but {0} does not come to their senses. They remain kneeling in the center
+    of the room, shaking and muttering something under their breath. They will have
+    to be left behind. "
+  partyCriticalFail: "{0} steps forward and falls to their knees, breathing heavily.
+    Their eyes are wide and unseeing, mouth open wide as they begin to scream, shudder
+    and shake. Their hands wave frantically, as if fending off an invisible enemy,
+    but there can be no defence against their own mind. The mass\u2019 many eyes
+    open wide in satisfaction, and it surges forward, growing until it fills the
+    whole room. It gradually envelops {0}, muffling their desperate screams and then...
+    Snuffing them out entirely."
+  traitToPass: 3
+  secondaryTraits: 0100000008000000
