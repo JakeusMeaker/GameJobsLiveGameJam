@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: Beggar
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 3abc55b22926e904eb756d1869ae127e, type: 3}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 0
+  scenarioText: "There is a slumped figure in the center of the room, face and body
+    obscured by a large cloak and robes. \u201CDo you have something for me?\u201D
+    he calls out. Perhaps he is simply a beggar... But what kind of beggar would
+    be in this place?"
+  passTraitText: '{0} cautiously approaches, kneeling next to the figure and opening
+    their pack. They explain they have no coins but can share their lunch with him,
+    offering him a hearty sandwich wrapped in brown paper. The figure eagerly accepts,
+    taking a large bite. He gestures at the door with the sandwich, which swings
+    magically open.'
+  secondary1PassText: "{0} cautiously approaches, sitting next to the figure. They
+    explain that the only thing that they could possibly give him would be the clothes
+    off their own back. They too are going through their own time of hardship, all
+    they can offer is a little empathy. The figure considers this for a moment, before
+    slowly raising his hand towards the door, which magically swings open. \u201CBe
+    on your way then.\u201D"
+  secondary2PassText: Better to not take any chances {0} cautiously approaches, watching
+    for sudden movements. They crouch next to the figure, barely hesitating before
+    they whip out a knife and thrust it straight into the figure, who does absolutely
+    nothing to resist. As the knife enters, the robes fold away around it, falling
+    into a pile on the floor, and revealing no body at all. {0} is nonetheless relieved
+    when they cross the room and pull the door open with ease.
+  luckyPassText: "{0} stares suspiciously at the figure for a moment, trying to determine
+    any ill intent, before digging through their pockets for some coins to give the
+    figure. After some rummaging around, they find a single gold coin. How did that
+    get there? {0} places it on the floor before the figure, who lifts his arm towards
+    the door. \u201CFate has been kind to you.\u201D he says, and the door swings
+    magically open."
+  failText: "{0} stares suspiciously at the figure for a moment, trying to determine
+    any ill intent, before digging through their pockets for some coins to give the
+    figure. After some moments rummaging around, they find absolutely nothing. \u201CThen
+    I will choose something.\u201D says the figure, raising his hand towards {0}.
+    Nothing happens, but they begin to feel strangely hollow, as if something very
+    important was taken from them. The figure then lifts his arm towards the door,
+    which swings magically open."
+  characterCriticalFail: "{0} stares suspiciously at the figure for a moment, trying
+    to determine any ill intent, before digging through their pockets for some coins
+    to give the figure. After some moments rummaging around, they find absolutely
+    nothing. \u201CThen you will give me your time instead.\u201D says the figure,
+    placing both of his hands together. In a puff of smoke, {0} instantly disappears,
+    leaving behind nothing but a pile of clothes. The figure then lifts his arm towards
+    the door, which swings magically open, and speaks in a younger man\u2019s voice,
+    \u201CBe on your way.\u201D"
+  partyCriticalFail: "{0} stares suspiciously at the figure for a moment, trying
+    to determine any ill intent, before digging through their pockets for some coins
+    to give the figure. After some moments rummaging around, they find absolutely
+    nothing. \u201CThere is but one thing left to give\u201D says the figure, placing
+    both of his hands together. In a puff of smoke, {0} instantly disappears, leaving
+    behind nothing but a pile of clothes. "
+  traitToPass: 8
+  secondaryTraits: 050000000a000000

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: TutorialScenario
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 0}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 1
+  scenarioText: "You are lost within this haunted place. \nTo escape, you must rely
+    on the people around you. \nYou will be presented with challenges - choose the
+    correct trait to pass unscathed.\nThere is a perfect skill for each situation.
+    There are also two skills that give you a chance to pass unharmed. Choosing the
+    right skill will cost you stamina.\nChoosing the wrong skill, or failing a secondary
+    skill, will cost you health."
+  passTraitText: 
+  secondary1PassText: 
+  secondary2PassText: 
+  luckyPassText: 
+  failText: 
+  characterCriticalFail: 
+  partyCriticalFail: 
+  traitToPass: 0
+  secondaryTraits: 0000000000000000
