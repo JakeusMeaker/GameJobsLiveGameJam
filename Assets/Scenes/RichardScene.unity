@@ -238,7 +238,6 @@ MonoBehaviour:
   healthGainInRestRoomAmount: 0
   staminaGainInRestRoomAmount: 0
   scenarioList:
-  - {fileID: 11400000, guid: 2510fe2ed2e6c4a46b22d97556bbfe65, type: 2}
   - {fileID: 11400000, guid: c8a7ea6f6fcef134a813ef249aaf14f7, type: 2}
   - {fileID: 11400000, guid: 21b245c00de3a814fb11abea550dd20e, type: 2}
   - {fileID: 11400000, guid: e012e6b3108fa504f947c1b29bfbd173, type: 2}
