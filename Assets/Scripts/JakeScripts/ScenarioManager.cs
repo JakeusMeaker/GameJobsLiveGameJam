@@ -61,8 +61,8 @@ public class ScenarioManager : MonoBehaviour
     }
 
     /* MAGNIFICENT LIST OF BUGS FOR JAKE (LOVE YOU JAKE)
-     WHen spamming space + left click, can still fuck up the typing robot (Maybe fixed?)
-    Also seem to end up on first scene again when doing that
+     WHen spamming space + left click, can still fuck up the typing robot (Maybe fixed?) - yeah haven't been able to replicate 
+    Also seem to end up on first scene again when doing that - seems to be fixed. I had added it within the loop and I think it was causing issues
     also need to disable buttons on characters who are exhausted or dead
     also need ending scene
     also jeez this is a lot
@@ -71,13 +71,11 @@ public class ScenarioManager : MonoBehaviour
 
     private void GenerateScenarioQueue()
     {
+        scenarioQueue.Enqueue(firstScenario);
+
         while (scenarioQueue.Count < amountOfScenarios - 1)
         {
-            if (scenarioQueue.Count == 0)
-            {
-                scenarioQueue.Enqueue(firstScenario);
-            }
-
+            //This was for if only 1 scenario was in the scenario list
             if (scenarioList.Count == 1)
             {
                 scenarioQueue.Enqueue(scenarioList[0]);
@@ -233,16 +231,7 @@ public class ScenarioManager : MonoBehaviour
 
     public void TraitSelected(E_Trait trait, SO_Character character)
     {
-        /* Rewrite so that:
-         * - The main trait is guarenteed success - Done
-         * - The Secondary traits get individual win text - Done
-         * - Secondary's have percentage to fail - Done
-         * - Lucky trait always has 50% chance of winning - Done
-         * - Lucky has generic lucky win text - Done
-         * - Fail conditions are checked and accurately respond to the players condition - Done
-         * 
-         *  Will review when less sleepy
-         */
+
 
         if (canUseTrait)
         {
@@ -335,29 +324,33 @@ public class ScenarioManager : MonoBehaviour
                         StartCoroutine(TextTyper(string.Format(currentScenario.failText, character.characterName), true));
                         characterManager.AdjustStamina(character, -1);
                         characterManager.AdjustHealth(character, -1);
+                        AudioManager.instance.Play(E_SFX.Injury);
+                    }
+                    else
+                    {
                         if (character.health == 0)
                         {
                             partyMembersDown++;
                             AudioManager.instance.Play(E_SFX.Death);
                             //TODO : Kill Character here - Sprite Remove, Etc.
 
+                            if (partyMembersDown < 3)
+                            {
+                                StartCoroutine(TextTyper(string.Format(currentScenario.characterCriticalFail, character.characterName), true));
+                                // SetContinueButton(true);
+                                characterManager.KillCharacter(character);
+                            }
+                            else
+                            {
+                                StartCoroutine(TextTyper(string.Format(currentScenario.partyCriticalFail, character.name), true));
+                                // SetContinueButton(true);
+                                //Errrr game over stuff then I guess? 
+                            }
                         }
                         else
                             AudioManager.instance.Play(E_SFX.Injury);
                         //SetContinueButton(true);
-                    }
-                    else
-                    {
-                        if (partyMembersDown < 3)
-                        {
-                            StartCoroutine(TextTyper(string.Format(currentScenario.characterCriticalFail, character.characterName), true));
-                            // SetContinueButton(true);
-                        }
-                        else
-                        {
-                            StartCoroutine(TextTyper(string.Format(currentScenario.partyCriticalFail, character.name), true));
-                            // SetContinueButton(true);
-                        }
+
                     }
                     break;
             }
