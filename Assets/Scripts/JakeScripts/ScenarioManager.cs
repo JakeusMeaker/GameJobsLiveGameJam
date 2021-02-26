@@ -21,6 +21,7 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField]
     private List<ScenarioSO> scenarioList = new List<ScenarioSO>();
 
+    public ScenarioSO firstScenario;
     public ScenarioSO finalScenario;
 
     private Queue<ScenarioSO> scenarioQueue = new Queue<ScenarioSO>();
@@ -58,6 +59,11 @@ public class ScenarioManager : MonoBehaviour
     {
         while (scenarioQueue.Count < amountOfScenarios - 1)
         {
+            if (scenarioQueue == null)
+            {
+                scenarioQueue.Enqueue(firstScenario);
+            }
+
             if (scenarioList.Count == 1)
             {
                 scenarioQueue.Enqueue(scenarioList[0]);
@@ -131,7 +137,7 @@ public class ScenarioManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKey)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             skipText = true;
         }
