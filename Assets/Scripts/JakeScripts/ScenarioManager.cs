@@ -21,6 +21,8 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField]
     private List<ScenarioSO> scenarioList = new List<ScenarioSO>();
 
+    public ScenarioSO finalScenario;
+
     private Queue<ScenarioSO> scenarioQueue = new Queue<ScenarioSO>();
     private ScenarioSO currentScenario;
     private E_Trait lastTraitUsed;
@@ -40,8 +42,8 @@ public class ScenarioManager : MonoBehaviour
     private E_PassType passType;
 
     private CharacterManager characterManager = null;
-    private bool canUseTrait = true;
-
+    private bool canUseTrait = false;
+    private bool skipText = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +56,7 @@ public class ScenarioManager : MonoBehaviour
 
     private void GenerateScenarioQueue()
     {
-        while (scenarioQueue.Count < amountOfScenarios)
+        while (scenarioQueue.Count < amountOfScenarios - 1)
         {
             if (scenarioList.Count == 1)
             {
@@ -77,6 +79,8 @@ public class ScenarioManager : MonoBehaviour
                 lastTraitUsed = scenario.traitToPass;
             }
         }
+
+        scenarioQueue.Enqueue(finalScenario);
     }
 
     public void NextScenario()
@@ -91,7 +95,6 @@ public class ScenarioManager : MonoBehaviour
         scenarioTextBox.text = "";
         LoadNextScenario();
         BlackoutAnimator.instance.FadeFromBlack();
-        canUseTrait = true;
     }
 
     public void LoadNextScenario()
@@ -103,7 +106,6 @@ public class ScenarioManager : MonoBehaviour
             if (currentScenario.isRestRoom)
             {
                 restRoomContinueButton.SetActive(true);
-                canUseTrait = false;
 
                 //Probably a more elegant way of doing this
                 for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
@@ -117,7 +119,6 @@ public class ScenarioManager : MonoBehaviour
             else
             {
                 restRoomContinueButton.SetActive(false);
-                canUseTrait = true;
             }
             Invoke("StartCurrentScenario", scenarioChangeTime);
         }
@@ -128,14 +129,20 @@ public class ScenarioManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.anyKey)
+        {
+            skipText = true;
+        }
+    }
+
     public void StartCurrentScenario()
     {
         if (currentScenario.backgroundImage != null)
             backgroundSprite.sprite = currentScenario.backgroundImage;
         if (currentScenario.foregroundImage != null)
             foregroundSprite.sprite = currentScenario.foregroundImage;
-
-        
 
         StartCoroutine(TextTyper(currentScenario.scenarioText));
     }
@@ -145,17 +152,36 @@ public class ScenarioManager : MonoBehaviour
         scenarioTextBox.text = "";
         for (int i = 0; i < textToType.Length; i++)
         {
-            scenarioTextBox.text += textToType[i];
-            yield return new WaitForSeconds(0.05f);
+            if (!skipText)
+            {
+                scenarioTextBox.text += textToType[i];
+                yield return new WaitForSeconds(0.05f);
+            }
+            else
+            {
+                scenarioTextBox.text += textToType[i];
+            }
         }
+
+        skipText = false;
 
         if (changeScenario)
         {
+            canUseTrait = false;
             changeScenario = false;
             Invoke("NextScenario", scenarioChangeTime);
         }
-        else        
-            yield return null;
+        else
+        {
+            if (currentScenario.isRestRoom)
+            {
+                canUseTrait = false;
+            }
+            else
+            {
+                canUseTrait = true;
+            }
+        }
     }
 
     public void TraitSelected(E_Trait trait, SO_Character character)
