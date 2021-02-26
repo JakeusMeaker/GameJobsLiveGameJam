@@ -231,8 +231,6 @@ public class ScenarioManager : MonoBehaviour
 
     public void TraitSelected(E_Trait trait, SO_Character character)
     {
-
-
         if (canUseTrait)
         {
             canUseTrait = false;
