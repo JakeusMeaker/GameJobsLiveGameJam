@@ -9,6 +9,8 @@ public class ScenarioManager : MonoBehaviour
     public SpriteRenderer backgroundSprite;
     public SpriteRenderer foregroundSprite;
 
+    AudioManager audioManager;
+
     [Header("Scenario Generation"), Range(3, 9)]
     public int amountOfScenarios;
 
@@ -51,6 +53,7 @@ public class ScenarioManager : MonoBehaviour
         GenerateScenarioQueue();
         currentScenario = scenarioQueue.Peek();
         LoadScenarioSprites();
+        audioManager = AudioManager.instance;
     }
 
     private void GenerateScenarioQueue()
@@ -106,6 +109,8 @@ public class ScenarioManager : MonoBehaviour
                 restRoomContinueButton.SetActive(true);
                 canUseTrait = false;
 
+                audioManager.Play(E_SFX.Heal);
+
                 //Probably a more elegant way of doing this
                 for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
                 {
@@ -128,7 +133,7 @@ public class ScenarioManager : MonoBehaviour
             //End game condititions here 
 
         }
-      }
+    }
 
     void LoadScenarioSprites()
     {
@@ -152,6 +157,7 @@ public class ScenarioManager : MonoBehaviour
         scenarioTextBox.text = "";
         for (int i = 0; i < textToType.Length; i++)
         {
+            //audioManager.Typewriter();
             scenarioTextBox.text += textToType[i];
             yield return new WaitForSeconds(0.05f);
         }
@@ -161,7 +167,7 @@ public class ScenarioManager : MonoBehaviour
             changeScenario = false;
             Invoke("NextScenario", scenarioChangeTime);
         }
-        else        
+        else
             yield return null;
     }
 
@@ -184,12 +190,14 @@ public class ScenarioManager : MonoBehaviour
             if (trait == scenarioQueue.Peek().traitToPass)
             {
                 passType = E_PassType.TraitPass;
+                audioManager.Play(E_SFX.Success);
             }
             else if (trait == scenarioQueue.Peek().secondaryTraits[0])
             {
                 if (UnityEngine.Random.value > secondaryTraitSuccessPercent)
                 {
                     passType = E_PassType.Secondary1Pass;
+                    audioManager.Play(E_SFX.Success);
                 }
                 else
                 {
@@ -201,6 +209,7 @@ public class ScenarioManager : MonoBehaviour
                 if (UnityEngine.Random.value > secondaryTraitSuccessPercent)
                 {
                     passType = E_PassType.Secondary2Pass;
+                    audioManager.Play(E_SFX.Success);
                 }
                 else
                 {
@@ -212,6 +221,7 @@ public class ScenarioManager : MonoBehaviour
                 if (UnityEngine.Random.value > 0.5f)
                 {
                     passType = E_PassType.LuckyPass;
+                    audioManager.Play(E_SFX.Success);
                 }
                 else
                 {

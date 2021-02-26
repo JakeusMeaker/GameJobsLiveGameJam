@@ -12,6 +12,7 @@ public class CharacterManager : MonoBehaviour
     }
 
     public Animator charSpriteAnim;
+    AudioManager audioManager;
 
     public Sprite fullHealthSprite;
     public Sprite emptyHealthSprite;
@@ -46,6 +47,7 @@ public class CharacterManager : MonoBehaviour
         }
 
         CharacterSelectionManager.instance.PopulateUICharacters();
+        audioManager = AudioManager.instance;
     }
 
     public void CharacterSelectButton(int buttonPress)
@@ -128,6 +130,7 @@ public class CharacterManager : MonoBehaviour
         if (adjust < 0)
         {
             CameraShake.instance.ShakeCamera(.5f, .5f);
+            audioManager.Play(E_SFX.Injury);
         }
 
         for (int i = 0; i < characterUI.Length; i++)
@@ -139,5 +142,10 @@ public class CharacterManager : MonoBehaviour
                 charSpriteAnim.SetTrigger("Damage");
             }
         }
+    }
+
+    public void CharacterSelectAudio()
+    {
+        audioManager.Play(E_SFX.Heal);
     }
 }
