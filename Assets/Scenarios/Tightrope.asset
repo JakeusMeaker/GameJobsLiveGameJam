@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: Tightrope
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: fae88c963b2543f4c8e6d058d159718e, type: 3}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 0
+  scenarioText: ' A tightrope stretches into the inky darkness. '
+  passTraitText: '{0} gracefully walks the rope, not even breaking a sweat. Upon
+    reaching the other edge they find a ladder propped up there, allowing the pit
+    to be traversed with ease.'
+  secondary1PassText: '{0} lowers themself onto the rope, one hand in front of the
+    other, shuffles along the rope. Upon reaching the other edge they find a ladder
+    propped up there, allowing the pit to be traversed with ease.'
+  secondary2PassText: '{0} peers into the darkness and notices something. Gripping
+    the edge of the ledge, they lower themself as far as they can into the pit, and
+    drop. There is silence for a long minute before a ladder emerges from the shade.'
+  luckyPassText: '{0} takes few steps, teetering back and forth like a drunkard,
+    but somehow making it to the other side. They find a ladder propped up there,
+    allowing the pit to be traversed with ease.'
+  failText: '{0} walks but a few steps before they teeter sideways and fall into
+    the darkness with a cry. There is silence for a long minute before a ladder emerges
+    from the shade, followed shortly by a grimacing {0}.'
+  characterCriticalFail: '{0} walks but a few steps before they teeter sideways and
+    fall into the darkness with a cry. There is a sickening crunch, and then silence
+    for a long minute before a ladder emerges from the darkness. It seems {0}] managed
+    to move it before succumbing to their injuries.'
+  partyCriticalFail: '{0} walks but a few steps before they teeter sideways and fall
+    into the darkness with a cry. There is a sickening crunch, and then silence. '
+  traitToPass: 2
+  secondaryTraits: 0000000009000000

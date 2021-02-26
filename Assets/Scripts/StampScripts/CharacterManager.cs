@@ -5,6 +5,20 @@ using UnityEngine.UI;
 
 public class CharacterManager : MonoBehaviour
 {
+    public static CharacterManager instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public Animator charSpriteAnim;
+    AudioManager audioManager;
+
+    public Sprite fullHealthSprite;
+    public Sprite emptyHealthSprite;
+    public Sprite fullStaminaSprite;
+    public Sprite emptyStaminaSprite;
+
     [Header("Setup Variables")]
     public GameObject characterSelectCanvas;
     public GameObject mainCharacterCanvas;
@@ -19,6 +33,7 @@ public class CharacterManager : MonoBehaviour
     public SpriteRenderer character1Sprite;
     public SpriteRenderer character2Sprite;
     public SpriteRenderer character3Sprite;
+    public CharacterUIData[] characterUI = new CharacterUIData[3];
 
 
     public SO_Character[] characterList;
@@ -32,6 +47,7 @@ public class CharacterManager : MonoBehaviour
         }
 
         CharacterSelectionManager.instance.PopulateUICharacters();
+        audioManager = AudioManager.instance;
     }
 
     public void CharacterSelectButton(int buttonPress)
@@ -46,6 +62,11 @@ public class CharacterManager : MonoBehaviour
         if (selectedCharacters.Count == 3)
         {
             Debug.Log("CHARACTERS SELECTED");
+            characterUI[0].thisCharacter = selectedCharacters[0];
+            characterUI[1].thisCharacter = selectedCharacters[1];
+            characterUI[2].thisCharacter = selectedCharacters[2];
+
+
             StartCoroutine(IE_GameTransition());
             // Move Forwards
         }
@@ -89,5 +110,42 @@ public class CharacterManager : MonoBehaviour
         string debugLog = selectedTraits[buttonPosition].ToString() + " was used by " + selectedCharacters[_charNumber].characterName;
         ScenarioManager.ATraitSelected(selectedTraits[buttonPosition], selectedCharacters[_charNumber]);
         Debug.Log(debugLog);
+    }
+
+    public void AdjustStamina(SO_Character _char, int adjust)
+    {
+        _char.stamina += adjust;
+        for (int i = 0; i < characterUI.Length; i++)
+        {
+            if (_char == characterUI[i].thisCharacter)
+            {
+                characterUI[i].stamina[_char.stamina].sprite = emptyStaminaSprite;
+            }
+        }
+    }
+
+    public void AdjustHealth(SO_Character _char, int adjust)
+    {
+        _char.health += adjust;
+        if (adjust < 0)
+        {
+            CameraShake.instance.ShakeCamera(.5f, .5f);
+            audioManager.Play(E_SFX.Injury);
+        }
+
+        for (int i = 0; i < characterUI.Length; i++)
+        {
+            if (_char == characterUI[i].thisCharacter)
+            {
+                characterUI[i].health[_char.health].sprite = emptyHealthSprite;
+                charSpriteAnim.SetInteger("CharacterDamaged", i);
+                charSpriteAnim.SetTrigger("Damage");
+            }
+        }
+    }
+
+    public void CharacterSelectAudio()
+    {
+        audioManager.Play(E_SFX.Heal);
     }
 }
