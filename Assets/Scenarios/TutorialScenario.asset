@@ -20,7 +20,8 @@ MonoBehaviour:
     correct trait to pass unscathed.\nThere is a perfect skill for each situation.
     There are also two skills that give you a chance to pass unharmed. Choosing the
     right skill will cost you stamina.\nChoosing the wrong skill, or failing a secondary
-    skill, will cost you health."
+    skill, will cost you health as well as stamina.\nPress Space to skip text typing,
+    and to move to the next scenario."
   passTraitText: 
   secondary1PassText: 
   secondary2PassText: 

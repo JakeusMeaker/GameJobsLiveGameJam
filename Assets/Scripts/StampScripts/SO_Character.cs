@@ -13,12 +13,16 @@ public class SO_Character : ScriptableObject
     public int stamina = 3;
     public int health = 3;
 
+   public bool isDead = false;
+
     public void InitCharacter()
     {
         GenerateName();
         GenerateTraits();
         health = 3;
         stamina = 3;
+
+        isDead = false;
 
         //Debug.Log(characterName + ", " + firstTrait + ", " + secondTrait);
     }
