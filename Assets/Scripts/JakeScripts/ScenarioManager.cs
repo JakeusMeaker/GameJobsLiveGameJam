@@ -27,7 +27,9 @@ public class ScenarioManager : MonoBehaviour
     private Queue<ScenarioSO> scenarioQueue = new Queue<ScenarioSO>();
     private ScenarioSO currentScenario;
     private E_Trait lastTraitUsed;
-    private bool changeScenario = false;
+
+    private bool enableContinueButton = false;
+    string currentText;
 
     [Header("Scenario UI Elements")]
     public Text scenarioTextBox;
@@ -44,7 +46,7 @@ public class ScenarioManager : MonoBehaviour
 
     private CharacterManager characterManager = null;
     private bool canUseTrait = false;
-    private bool skipText = false;
+    //private bool skipText = false;
     private bool isTyping = false;
 
     //Timer for Space Spam
@@ -149,6 +151,26 @@ public class ScenarioManager : MonoBehaviour
         }
     }
 
+    void SkipText()
+    {
+        StopAllCoroutines();
+        scenarioTextBox.text = "";
+        scenarioTextBox.text = currentText;
+        if (enableContinueButton == true)
+        {
+            SetContinueButton(true);
+        }
+
+        if (currentScenario.isRestRoom)
+        {
+            canUseTrait = false;
+        }
+        else
+        {
+            canUseTrait = true;
+        }
+    }
+
     private void Update()
     {
         timer += Time.deltaTime;
@@ -157,7 +179,7 @@ public class ScenarioManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && isTyping)
             {
-                skipText = true;
+                SkipText();
                 timer = 0;
             }
         }
@@ -187,42 +209,31 @@ public class ScenarioManager : MonoBehaviour
 
     IEnumerator TextTyper(string textToType, bool isContinue)
     {
+        currentText = textToType;
+        if (isContinue)
+            enableContinueButton = true;
+        else
+            enableContinueButton = false;
+
         scenarioTextBox.text = "";
         isTyping = true;
         for (int i = 0; i < textToType.Length; i++)
         {
-            if (!skipText)
-            {
-                scenarioTextBox.text += textToType[i];
-                yield return new WaitForSeconds(0.05f);
-            }
-            else
-            {
-                scenarioTextBox.text += textToType[i];
-            }
+            scenarioTextBox.text += textToType[i];
+            yield return new WaitForSeconds(0.05f);
         }
 
-        skipText = false;
-
-        if (changeScenario)
+        if (currentScenario.isRestRoom)
         {
             canUseTrait = false;
-            changeScenario = false;
-            StartCurrentScenario();
-            //Invoke("NextScenario", scenarioChangeTime);
         }
         else
         {
-            if (currentScenario.isRestRoom)
-            {
-                canUseTrait = false;
-            }
-            else
-            {
-                canUseTrait = true;
-            }
+            canUseTrait = true;
         }
+
         isTyping = false;
+
         if (isContinue)
         {
             SetContinueButton(true);

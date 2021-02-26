@@ -11,7 +11,6 @@ public class CharacterManager : MonoBehaviour
         instance = this;
     }
 
-    public Animator charSpriteAnim;
     AudioManager audioManager;
 
     public Sprite fullHealthSprite;
@@ -117,6 +116,9 @@ public class CharacterManager : MonoBehaviour
 
     public void AdjustStamina(SO_Character _char, int adjust)
     {
+        if (_char.isDead)
+            return;
+
         if (_char.stamina == 0 && adjust < 0)
         {
             AdjustHealth(_char, -1);
@@ -135,6 +137,9 @@ public class CharacterManager : MonoBehaviour
 
     public void AdjustHealth(SO_Character _char, int adjust)
     {
+        if (_char.isDead)
+            return;
+
         _char.health += adjust;
         _char.health = Mathf.Clamp(_char.health, 0, 3);
         if (adjust < 0)
