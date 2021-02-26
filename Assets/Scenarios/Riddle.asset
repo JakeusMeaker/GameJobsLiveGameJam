@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: Riddle
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 3ca8c251870d7eb4ab58bc169b2d7bd5, type: 3}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 0
+  scenarioText: "There is no door on the far wall, only an animated face cut into
+    the stonework. It grins, seemingly pleased to have company. \u201CAnswer me these
+    questions three...\u201D It says with a sly wink."
+  passTraitText: "{0} eagerly listens to the questions. The first two are easy, and
+    while the third seems to be making an unexpected reference, it is but a trifle
+    for {0}\u2019s dazzling intellect. Satisfied, the face grins once more, opening
+    its mouth wider and wider until it reveals the way forward."
+  secondary1PassText: "{0} reluctantly listens to the questions. The first two are
+    easy, but the third is the kind of thing no one could possibly know. {0} seems
+    baffled, and asks for the face to clarify some of the details. After some back
+    and forth, the face reveals it has no idea what the answer to the riddle is either,
+    but has been satisfied by {0}\u2019s penchant for pop culture references. The
+    face grins once more, opening its mouth wider and wider until it reveals the
+    way forward."
+  secondary2PassText: '{0} listens to the questions, but seems a little distracted.
+    The first two are easy, but halfway through the third, {0} dashes straight towards
+    the startled face, reaching into its mouth, and pushing a well concealed button.
+    The face begins cursing {0}, but can only get out a few words before its mouth
+    is forced open, revealing the way forward. It glares at {0} as they climb through.'
+  luckyPassText: '{0} listens to the questions. The first two are easy, but the third
+    is the kind of thing no one could possibly know. The face twists into a smug
+    leer, but {0} shrugs and answers, taking a shot in the dark. The face is speechless
+    for a moment, before confirming that this was indeed the correct answer. Satisfied,
+    the face grins once more, opening its mouth wider and wider until it reveals
+    the way forward.'
+  failText: "{0} listens to the questions. The first two are easy, but the third
+    is the kind of thing no one could possibly know. The face twists into a smug
+    leer, relishing its inevitable victory. Sure enough, {0} cannot answer. \u201CJust
+    a little taste this time.\u201Dsays the face, and a long stoney tongue lashes
+    out of its mouth, and around {0}. It constricts them for a moment, crushing them
+    in its grasp. \u201CDelicious\u201D, it says as it coils its tongue back into
+    its mouth, releasing them. Seemingly satisfied, the face grins once more, opening
+    its mouth wider and wider until it reveals the way forward."
+  characterCriticalFail: "{0} listens to the questions. The first two are easy, but
+    the third is the kind of thing no one could possibly know. The face twists into
+    a smug leer, relishing its inevitable victory. Sure enough, {0} cannot answer.
+    \u201CJust one bite\u201D says the face, and a long stoney tongue lashes towards
+    {0}, pulling them into its mouth. There is a moment as the face seems to chew
+    and consider. Seemingly satisfied, the face grins once more. \u201CI never can
+    help myself\u201D, it says,  opening its mouth wider and wider until it reveals
+    the way forward, but no sign of {0} at all."
+  partyCriticalFail: "{0} listens to the questions. The first two are easy, but the
+    third is the kind of thing no one could possibly know. The face twists into a
+    smug leer, relishing its inevitable victory. Sure enough, {0} cannot answer.
+    \u201CPerhaps a nibble\u201D says the face, and a long stoney tongue lashes towards
+    {0}, pulling them into its mouth. The face seems to chew and consider for a few
+    minutes, until blood begins to trickle down it\u2019s chin. \u201COops.\u201D"
+  traitToPass: 4
+  secondaryTraits: 0500000009000000

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: CollapsingRoom
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 5d84a8899bc6fac45b424c15d14481e4, type: 3}
+  foregroundImage: {fileID: 21300000, guid: 1008b2b1b12e9064ba4ece5eb06dd022, type: 3}
+  isRestRoom: 0
+  scenarioText: The beams in this room creak under the weight of what appears to
+    be rocks above them. No sooner is the door to the room opened than it all starts
+    to collapse, beginning to fill the room and block the way through!
+  passTraitText: "Perfect Pass: {0} surges forward and pushes the fallen rocks aside
+    with remarkable ease. A particularly large one blocks the exit, but it is no
+    match for {0}\u2019s herculean strength, and they shove it out of the way, leaving
+    the exit door open before too many rocks have fallen at all."
+  secondary1PassText: '{0} is a colossus. The falling rocks seem no more bother to
+    them than rain, allowing for a relatively easy path through. A particularly large
+    rock blocks the exit, which they heave out of the way long enough to allow a
+    dash for the door, and {0} is left with only minor bruises.'
+  secondary2PassText: '{0} sees an opening and goes for it. Ducking and diving through
+    the falling rocks, they slip through a gap in the rubble blocking the exit door,
+    and immediately the chaos behind them ceases. The rocks have stopped falling.
+    Perhaps it was some mechanism causing the collapse? How strange.'
+  luckyPassText: '{0} runs through as rocks fall around them, miraculously missing
+    them by inches and leaving a straight path to the door largely unobstructed A
+    particularly large rock blocks the exit, which they heave out of the way with
+    difficulty, long enough to allow a dash for the door.'
+  failText: '{0} runs through as rocks fall, battering them as they go but leaving
+    a straight path to the door largely unobstructed A particularly large rock blocks
+    the exit, which they heave out of the way with difficulty, long enough to allow
+    a dash for the door. Finally, they push through and escape, bloodied but alive.'
+  characterCriticalFail: '{0} runs through as rocks fall, battering them as they
+    go but leaving a straight path to the door largely unobstructed A particularly
+    large rock blocks the exit, which they heave out of the way with difficulty,
+    holding it as to allow a dash for the door. But with no one after them to hold
+    the rock, they are too slow. Mere inches from escape, a huge rock falls from
+    the ceiling, filling the space where {0} was moments before. The only thing left
+    to do is try to let their sacrifice not be in vain.'
+  partyCriticalFail: "{0} runs through as rocks fall, battering them as they go.
+    They press onwards, but it seems every step forward is thwarted by stone blocking
+    their path. They twist and turn, and the exit door is in sight, when in a sudden
+    flurry\u2026 The space where {0) was is swallowed by rubble. And there is only
+    darkness."
+  traitToPass: 0
+  secondaryTraits: 0100000002000000
