@@ -12,8 +12,8 @@ public class ScenarioManager : MonoBehaviour
     [Header("Scenario Generation"), Range(3, 9)]
     public int amountOfScenarios;
 
-    [Range(0.5f, 10f)]
-    public float scenarioChangeTime;
+    //[Range(0.5f, 10f)]
+    //public float scenarioChangeTime;
 
     public int healthGainInRestRoomAmount;
     public int staminaGainInRestRoomAmount;
@@ -45,6 +45,11 @@ public class ScenarioManager : MonoBehaviour
     private CharacterManager characterManager = null;
     private bool canUseTrait = false;
     private bool skipText = false;
+    private bool isTyping = false;
+
+    //Timer for Space Spam
+    float timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,11 +60,20 @@ public class ScenarioManager : MonoBehaviour
         currentScenario = scenarioQueue.Peek();
     }
 
+    /* MAGNIFICENT LIST OF BUGS FOR JAKE (LOVE YOU JAKE)
+     WHen spamming space + left click, can still fuck up the typing robot (Maybe fixed?)
+    Also seem to end up on first scene again when doing that
+    also need to disable buttons on characters who are exhausted or dead
+    also need ending scene
+    also jeez this is a lot
+     */
+
+
     private void GenerateScenarioQueue()
     {
         while (scenarioQueue.Count < amountOfScenarios - 1)
         {
-            if (scenarioQueue == null)
+            if (scenarioQueue.Count == 0)
             {
                 scenarioQueue.Enqueue(firstScenario);
             }
@@ -112,21 +126,23 @@ public class ScenarioManager : MonoBehaviour
             if (currentScenario.isRestRoom)
             {
                 restRoomContinueButton.SetActive(true);
+                AudioManager.instance.Play(E_SFX.Heal);
 
                 //Probably a more elegant way of doing this
                 for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
                 {
                     if (characterManager.selectedCharacters[i].health < 3)
-                        characterManager.selectedCharacters[i].health += healthGainInRestRoomAmount;
+                        characterManager.AdjustHealth(characterManager.selectedCharacters[i], healthGainInRestRoomAmount);
                     if (characterManager.selectedCharacters[i].stamina < 3)
-                        characterManager.selectedCharacters[i].stamina += staminaGainInRestRoomAmount;
+                        characterManager.AdjustStamina(characterManager.selectedCharacters[i], staminaGainInRestRoomAmount);
                 }
             }
             else
             {
-                restRoomContinueButton.SetActive(false);
+                SetContinueButton(false);
             }
-            Invoke("StartCurrentScenario", scenarioChangeTime);
+            StartCurrentScenario();
+            //Invoke("StartCurrentScenario", scenarioChangeTime);
         }
         else
         {
@@ -137,9 +153,15 @@ public class ScenarioManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        timer += Time.deltaTime;
+
+        if (timer > 1)
         {
-            skipText = true;
+            if (Input.GetKeyDown(KeyCode.Space) && isTyping)
+            {
+                skipText = true;
+                timer = 0;
+            }
         }
     }
 
@@ -147,15 +169,28 @@ public class ScenarioManager : MonoBehaviour
     {
         if (currentScenario.backgroundImage != null)
             backgroundSprite.sprite = currentScenario.backgroundImage;
+        else
+            backgroundSprite.sprite = null;
+
         if (currentScenario.foregroundImage != null)
             foregroundSprite.sprite = currentScenario.foregroundImage;
+        else
+            foregroundSprite.sprite = null;
 
-        StartCoroutine(TextTyper(currentScenario.scenarioText));
+
+        StopAllCoroutines();
+
+        if (currentScenario.isRestRoom)
+            StartCoroutine(TextTyper(currentScenario.scenarioText, true));
+        else
+            StartCoroutine(TextTyper(currentScenario.scenarioText, false));
+
     }
 
-    IEnumerator TextTyper(string textToType)
+    IEnumerator TextTyper(string textToType, bool isContinue)
     {
         scenarioTextBox.text = "";
+        isTyping = true;
         for (int i = 0; i < textToType.Length; i++)
         {
             if (!skipText)
@@ -175,7 +210,8 @@ public class ScenarioManager : MonoBehaviour
         {
             canUseTrait = false;
             changeScenario = false;
-            Invoke("NextScenario", scenarioChangeTime);
+            StartCurrentScenario();
+            //Invoke("NextScenario", scenarioChangeTime);
         }
         else
         {
@@ -187,6 +223,11 @@ public class ScenarioManager : MonoBehaviour
             {
                 canUseTrait = true;
             }
+        }
+        isTyping = false;
+        if (isContinue)
+        {
+            SetContinueButton(true);
         }
     }
 
@@ -251,58 +292,80 @@ public class ScenarioManager : MonoBehaviour
             switch (passType)
             {
                 case E_PassType.TraitPass:
-                    character.stamina--;    //UI changes to stamina bar should be done here
+                    characterManager.AdjustStamina(character, -1);    //UI changes to stamina bar should be done here
+                    AudioManager.instance.Play(E_SFX.Success);
 
-                    StartCoroutine(TextTyper(string.Format(currentScenario.passTraitText, character.characterName)));
-                    changeScenario = true;
+                    StartCoroutine(TextTyper(string.Format(currentScenario.passTraitText, character.characterName), true));
+
                     break;
 
                 case E_PassType.Secondary1Pass:
-                    character.stamina--;    //UI changes to stamina bar should be done here
+                    characterManager.AdjustStamina(character, -1);    //UI changes to stamina bar should be done here
+                    AudioManager.instance.Play(E_SFX.Success);
 
-                    StartCoroutine(TextTyper(string.Format(currentScenario.secondary1PassText, character.characterName)));
-                    changeScenario = true;
+                    StartCoroutine(TextTyper(string.Format(currentScenario.secondary1PassText, character.characterName), true));
+                    //SetContinueButton(true);
                     break;
 
                 case E_PassType.Secondary2Pass:
-                    character.stamina--;    //UI changes to stamina bar should be done here
+                    characterManager.AdjustStamina(character, -1);    //UI changes to stamina bar should be done here
+                    AudioManager.instance.Play(E_SFX.Success);
 
-                    StartCoroutine(TextTyper(string.Format(currentScenario.secondary2PassText, character.characterName)));
-                    changeScenario = true;
+                    StartCoroutine(TextTyper(string.Format(currentScenario.secondary2PassText, character.characterName), true));
+                    //SetContinueButton(true);
                     break;
 
                 case E_PassType.LuckyPass:
-                    character.stamina--;    //UI changes to stamina bar should be done here
+                    characterManager.AdjustStamina(character, -1);    //UI changes to stamina bar should be done here
+                    AudioManager.instance.Play(E_SFX.Success);
 
-                    StartCoroutine(TextTyper(string.Format(currentScenario.luckyPassText, character.characterName)));
-                    changeScenario = true;
+                    StartCoroutine(TextTyper(string.Format(currentScenario.luckyPassText, character.characterName), true));
+                    // SetContinueButton(true);
                     break;
 
                 case E_PassType.Fail:
+
+                    //Types too early, needs to adjust health and then sort appropriate respooinse. 
+                    // character.isDead is implemented now, that would work great.
+                    // Could swap int of dead characters for a loop that checks for not dead before game over?
+                    // Love you
+
                     if (character.health > 0)
                     {
-                        StartCoroutine(TextTyper(string.Format(currentScenario.failText, character.characterName)));
-                        character.stamina--;
-                        character.health--;
+                        StartCoroutine(TextTyper(string.Format(currentScenario.failText, character.characterName), true));
+                        characterManager.AdjustStamina(character, -1);
+                        characterManager.AdjustHealth(character, -1);
                         if (character.health == 0)
+                        {
                             partyMembersDown++;
-                        changeScenario = true;
+                            AudioManager.instance.Play(E_SFX.Death);
+                            //TODO : Kill Character here - Sprite Remove, Etc.
+
+                        }
+                        else
+                            AudioManager.instance.Play(E_SFX.Injury);
+                        //SetContinueButton(true);
                     }
                     else
                     {
                         if (partyMembersDown < 3)
                         {
-                            StartCoroutine(TextTyper(string.Format(currentScenario.characterCriticalFail, character.characterName)));
-                            changeScenario = true;
+                            StartCoroutine(TextTyper(string.Format(currentScenario.characterCriticalFail, character.characterName), true));
+                            // SetContinueButton(true);
                         }
                         else
                         {
-                            StartCoroutine(TextTyper(string.Format(currentScenario.partyCriticalFail, character.name)));
-                            changeScenario = true;
+                            StartCoroutine(TextTyper(string.Format(currentScenario.partyCriticalFail, character.name), true));
+                            // SetContinueButton(true);
                         }
                     }
                     break;
             }
         }
+    }
+
+    void SetContinueButton(bool _state)
+    {
+        restRoomContinueButton.SetActive(_state);
     }
 }

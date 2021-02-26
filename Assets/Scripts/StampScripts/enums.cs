@@ -58,7 +58,8 @@ public enum E_FirstName
     Codey,
     Codie,
     Kodi,
-    Kodey
+    Kodey,
+    Sep
 }
 
 public enum E_LastName
@@ -94,7 +95,8 @@ public enum E_LastName
     Mandude,
     Moneybags,
     Deeni,
-    Willis
+    Willis,
+    Teques
 }
 
 public enum E_PassType
