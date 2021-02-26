@@ -9,8 +9,6 @@ public class ScenarioManager : MonoBehaviour
     public SpriteRenderer backgroundSprite;
     public SpriteRenderer foregroundSprite;
 
-    AudioManager audioManager;
-
     [Header("Scenario Generation"), Range(3, 9)]
     public int amountOfScenarios;
 
@@ -22,6 +20,8 @@ public class ScenarioManager : MonoBehaviour
 
     [SerializeField]
     private List<ScenarioSO> scenarioList = new List<ScenarioSO>();
+
+    public ScenarioSO finalScenario;
 
     private Queue<ScenarioSO> scenarioQueue = new Queue<ScenarioSO>();
     private ScenarioSO currentScenario;
@@ -42,8 +42,8 @@ public class ScenarioManager : MonoBehaviour
     private E_PassType passType;
 
     private CharacterManager characterManager = null;
-    private bool canUseTrait = true;
-
+    private bool canUseTrait = false;
+    private bool skipText = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,13 +52,11 @@ public class ScenarioManager : MonoBehaviour
         AStartScenario += StartCurrentScenario;
         GenerateScenarioQueue();
         currentScenario = scenarioQueue.Peek();
-        LoadScenarioSprites();
-        audioManager = AudioManager.instance;
     }
 
     private void GenerateScenarioQueue()
     {
-        while (scenarioQueue.Count < amountOfScenarios)
+        while (scenarioQueue.Count < amountOfScenarios - 1)
         {
             if (scenarioList.Count == 1)
             {
@@ -81,6 +79,8 @@ public class ScenarioManager : MonoBehaviour
                 lastTraitUsed = scenario.traitToPass;
             }
         }
+
+        scenarioQueue.Enqueue(finalScenario);
     }
 
     public void NextScenario()
@@ -91,11 +91,10 @@ public class ScenarioManager : MonoBehaviour
     IEnumerator IE_LoadNextScene()
     {
         BlackoutAnimator.instance.FadeToBlack();
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSeconds(1.5f);
         scenarioTextBox.text = "";
         LoadNextScenario();
         BlackoutAnimator.instance.FadeFromBlack();
-        canUseTrait = true;
     }
 
     public void LoadNextScenario()
@@ -107,25 +106,20 @@ public class ScenarioManager : MonoBehaviour
             if (currentScenario.isRestRoom)
             {
                 restRoomContinueButton.SetActive(true);
-                canUseTrait = false;
-
-                audioManager.Play(E_SFX.Heal);
 
                 //Probably a more elegant way of doing this
                 for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
                 {
                     if (characterManager.selectedCharacters[i].health < 3)
-                        characterManager.AdjustHealth(characterManager.selectedCharacters[i], healthGainInRestRoomAmount);
+                        characterManager.selectedCharacters[i].health += healthGainInRestRoomAmount;
                     if (characterManager.selectedCharacters[i].stamina < 3)
-                        characterManager.AdjustStamina(characterManager.selectedCharacters[i], staminaGainInRestRoomAmount);
+                        characterManager.selectedCharacters[i].stamina += staminaGainInRestRoomAmount;
                 }
             }
             else
             {
                 restRoomContinueButton.SetActive(false);
-                canUseTrait = true;
             }
-            LoadScenarioSprites();
             Invoke("StartCurrentScenario", scenarioChangeTime);
         }
         else
@@ -135,20 +129,21 @@ public class ScenarioManager : MonoBehaviour
         }
     }
 
-    void LoadScenarioSprites()
+    private void Update()
     {
-        if (currentScenario.backgroundImage != null)
-            backgroundSprite.sprite = currentScenario.backgroundImage;
-        else
-            backgroundSprite.sprite = null;
-        if (currentScenario.foregroundImage != null)
-            foregroundSprite.sprite = currentScenario.foregroundImage;
-        else
-            foregroundSprite.sprite = null;
+        if (Input.anyKey)
+        {
+            skipText = true;
+        }
     }
 
     public void StartCurrentScenario()
     {
+        if (currentScenario.backgroundImage != null)
+            backgroundSprite.sprite = currentScenario.backgroundImage;
+        if (currentScenario.foregroundImage != null)
+            foregroundSprite.sprite = currentScenario.foregroundImage;
+
         StartCoroutine(TextTyper(currentScenario.scenarioText));
     }
 
@@ -157,18 +152,36 @@ public class ScenarioManager : MonoBehaviour
         scenarioTextBox.text = "";
         for (int i = 0; i < textToType.Length; i++)
         {
-            //audioManager.Typewriter();
-            scenarioTextBox.text += textToType[i];
-            yield return new WaitForSeconds(0.05f);
+            if (!skipText)
+            {
+                scenarioTextBox.text += textToType[i];
+                yield return new WaitForSeconds(0.05f);
+            }
+            else
+            {
+                scenarioTextBox.text += textToType[i];
+            }
         }
+
+        skipText = false;
 
         if (changeScenario)
         {
+            canUseTrait = false;
             changeScenario = false;
             Invoke("NextScenario", scenarioChangeTime);
         }
         else
-            yield return null;
+        {
+            if (currentScenario.isRestRoom)
+            {
+                canUseTrait = false;
+            }
+            else
+            {
+                canUseTrait = true;
+            }
+        }
     }
 
     public void TraitSelected(E_Trait trait, SO_Character character)
@@ -190,14 +203,12 @@ public class ScenarioManager : MonoBehaviour
             if (trait == scenarioQueue.Peek().traitToPass)
             {
                 passType = E_PassType.TraitPass;
-                audioManager.Play(E_SFX.Success);
             }
             else if (trait == scenarioQueue.Peek().secondaryTraits[0])
             {
                 if (UnityEngine.Random.value > secondaryTraitSuccessPercent)
                 {
                     passType = E_PassType.Secondary1Pass;
-                    audioManager.Play(E_SFX.Success);
                 }
                 else
                 {
@@ -209,7 +220,6 @@ public class ScenarioManager : MonoBehaviour
                 if (UnityEngine.Random.value > secondaryTraitSuccessPercent)
                 {
                     passType = E_PassType.Secondary2Pass;
-                    audioManager.Play(E_SFX.Success);
                 }
                 else
                 {
@@ -221,7 +231,6 @@ public class ScenarioManager : MonoBehaviour
                 if (UnityEngine.Random.value > 0.5f)
                 {
                     passType = E_PassType.LuckyPass;
-                    audioManager.Play(E_SFX.Success);
                 }
                 else
                 {
@@ -236,32 +245,28 @@ public class ScenarioManager : MonoBehaviour
             switch (passType)
             {
                 case E_PassType.TraitPass:
-                    //character.stamina--;    //UI changes to stamina bar should be done here
-                    characterManager.AdjustStamina(character, -1);
+                    character.stamina--;    //UI changes to stamina bar should be done here
 
                     StartCoroutine(TextTyper(string.Format(currentScenario.passTraitText, character.characterName)));
                     changeScenario = true;
                     break;
 
                 case E_PassType.Secondary1Pass:
-                    //character.stamina--;    //UI changes to stamina bar should be done here
-                    characterManager.AdjustStamina(character, -1);
+                    character.stamina--;    //UI changes to stamina bar should be done here
 
                     StartCoroutine(TextTyper(string.Format(currentScenario.secondary1PassText, character.characterName)));
                     changeScenario = true;
                     break;
 
                 case E_PassType.Secondary2Pass:
-                    //character.stamina--;    //UI changes to stamina bar should be done here
-                    characterManager.AdjustStamina(character, -1);
+                    character.stamina--;    //UI changes to stamina bar should be done here
 
                     StartCoroutine(TextTyper(string.Format(currentScenario.secondary2PassText, character.characterName)));
                     changeScenario = true;
                     break;
 
                 case E_PassType.LuckyPass:
-                    //character.stamina--;    //UI changes to stamina bar should be done here
-                    characterManager.AdjustStamina(character, -1);
+                    character.stamina--;    //UI changes to stamina bar should be done here
 
                     StartCoroutine(TextTyper(string.Format(currentScenario.luckyPassText, character.characterName)));
                     changeScenario = true;
@@ -271,8 +276,8 @@ public class ScenarioManager : MonoBehaviour
                     if (character.health > 0)
                     {
                         StartCoroutine(TextTyper(string.Format(currentScenario.failText, character.characterName)));
-                        characterManager.AdjustStamina(character, -1);
-                        characterManager.AdjustHealth(character, -1);
+                        character.stamina--;
+                        character.health--;
                         if (character.health == 0)
                             partyMembersDown++;
                         changeScenario = true;
