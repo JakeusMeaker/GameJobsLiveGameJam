@@ -105,3 +105,13 @@ public enum E_PassType
     LuckyPass,
     Fail
 }
+
+public enum E_SFX
+{
+    Injury,
+    Success,
+    Heal,
+    Death,
+    GameOver
+}
+
