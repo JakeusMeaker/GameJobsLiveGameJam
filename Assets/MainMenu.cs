@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        SetFullscreen(false);
     }
 
     public void OptionsMenu()
@@ -58,5 +59,13 @@ public class MainMenu : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+        if (isFullscreen == true)
+        {
+            Screen.SetResolution(960, 720, true);
+        }
+        else
+        {
+            Screen.SetResolution(960, 720, false);
+        }
     }
 }
