@@ -24,7 +24,7 @@ public class ScenarioManager : MonoBehaviour
     public ScenarioSO firstScenario;
     public ScenarioSO lastScenario;
 
-    public FinalScene finalScene;
+    public FinalScene finalSceneScript;
 
     private Queue<ScenarioSO> scenarioQueue = new Queue<ScenarioSO>();
     private ScenarioSO currentScenario;
@@ -157,7 +157,7 @@ public class ScenarioManager : MonoBehaviour
 
     public void EndGame()
     {
-        finalScene.DoFinalScene(characterManager.selectedCharacters.ToArray());
+        finalSceneScript.DoFinalScene(characterManager.selectedCharacters.ToArray());
         endGameButton.SetActive(false);
     }
 
