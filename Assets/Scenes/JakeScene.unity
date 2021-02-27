@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundSprite: {fileID: 1719060052}
   foregroundSprite: {fileID: 1265290235}
-  amountOfScenarios: 20
+  amountOfScenarios: 3
   healthGainInRestRoomAmount: 1
   staminaGainInRestRoomAmount: 1
   scenarioList:
@@ -250,11 +250,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6cc76013692a81744a4f717c4df2be48, type: 2}
   - {fileID: 11400000, guid: a67c68f9fcd66c14eb8593be15f733f6, type: 2}
   firstScenario: {fileID: 11400000, guid: 2510fe2ed2e6c4a46b22d97556bbfe65, type: 2}
-  lastScenario: {fileID: 0}
+  lastScenario: {fileID: 11400000, guid: c8a7ea6f6fcef134a813ef249aaf14f7, type: 2}
   finalSceneScript: {fileID: 235700436}
   scenarioTextBox: {fileID: 639365874}
   restRoomContinueButton: {fileID: 582769747}
-  endGameButton: {fileID: 689442327}
   secondaryTraitSuccessPercent: 0.25
 --- !u!114 &235700436
 MonoBehaviour:
@@ -268,6 +267,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 135469783c6b5b34b84e8d10655d236d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thingsToDisable: []
+  finalScene: {fileID: 0}
+  gameWinSprite: []
+  gameOverSprite: {fileID: 0}
+  epilogueText: {fileID: 0}
+  backgroundImage: {fileID: 0}
+  playerSprites: []
 --- !u!114 &339950744 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5755307341737096242, guid: b073c2220aeb6c244932cd3f4aabfeba,
@@ -1442,7 +1448,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cdf7a6b7e1723124fafa52591f8c6441, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 556bfcc08888c35478817418a089173e, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1450,7 +1456,7 @@ SpriteRenderer:
   m_Size: {x: 4, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &954174651
@@ -2761,6 +2767,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2052890112
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8090829115593755458, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: m_Name
+      value: FinalScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755516, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755516, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755516, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755516, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755516, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755516, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755516, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755516, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755516, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755516, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755516, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755517, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: thingsToDisable.Array.data[0]
+      value: 
+      objectReference: {fileID: 235700434}
+    - target: {fileID: 8090829115593755517, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: thingsToDisable.Array.data[1]
+      value: 
+      objectReference: {fileID: 1353395987}
+    - target: {fileID: 8090829115593755517, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: thingsToDisable.Array.data[2]
+      value: 
+      objectReference: {fileID: 954174651}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3, type: 3}
 --- !u!114 &2054739370 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2981264498235255015, guid: b073c2220aeb6c244932cd3f4aabfeba,
