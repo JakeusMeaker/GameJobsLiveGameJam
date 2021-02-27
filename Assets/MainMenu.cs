@@ -7,13 +7,44 @@ using UnityEngine.Audio;
 public class MainMenu : MonoBehaviour
 {
     public AudioMixer masterMixer;
+    public Vector2 timeBetweenFlashes;
+    float timer;
+    float delay;
 
     Animator anim;
+    public Animator lightningAnimator;
+    public AudioSource lightningAudio;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         SetFullscreen(false);
+
+        SetLightningDelay();
+        timer = 0;
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer > delay)
+        {
+            timer = 0;
+            LightningCrash();
+            SetLightningDelay();
+        }
+    }
+
+    void SetLightningDelay()
+    {
+        delay = Random.Range(timeBetweenFlashes.x, timeBetweenFlashes.y);
+
+    }
+
+    void LightningCrash()
+    {
+        lightningAnimator.SetTrigger("Thunder");
+        lightningAudio.Play();
     }
 
     public void OptionsMenu()
