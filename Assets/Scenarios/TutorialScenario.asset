@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
   m_Name: TutorialScenario
   m_EditorClassIdentifier: 
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: 51a83b97f8965e640b039aed5bcf84f9, type: 3}
   foregroundImage: {fileID: 0}
   isRestRoom: 1
   scenarioText: "You are lost within this haunted place. \nTo escape, you must rely

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CollapsingRoom
   m_EditorClassIdentifier: 
   backgroundImage: {fileID: 21300000, guid: 5d84a8899bc6fac45b424c15d14481e4, type: 3}
-  foregroundImage: {fileID: 21300000, guid: 1008b2b1b12e9064ba4ece5eb06dd022, type: 3}
+  foregroundImage: {fileID: 0}
   isRestRoom: 0
   scenarioText: The beams in this room creak under the weight of what appears to
     be rocks above them. No sooner is the door to the room opened than it all starts
