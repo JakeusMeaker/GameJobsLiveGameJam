@@ -145,11 +145,18 @@ public class ScenarioManager : MonoBehaviour
             if(currentScenario == finalScenario)
             {
                 endGameButton.SetActive(true);
+                EndGame();
+                return;
             }
 
             StartCurrentScenario();
             //Invoke("StartCurrentScenario", scenarioChangeTime);
         }
+    }
+
+    private void EndGame()
+    {
+     
     }
 
     void SkipText()
