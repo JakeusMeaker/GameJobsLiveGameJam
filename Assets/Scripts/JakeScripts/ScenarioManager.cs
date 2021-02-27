@@ -36,7 +36,7 @@ public class ScenarioManager : MonoBehaviour
     [Header("Scenario UI Elements")]
     public Text scenarioTextBox;
     public GameObject restRoomContinueButton;
-    public GameObject endGameButton;
+    //public GameObject endGameButton;
 
     private int partyMembersDown = 0;
 
@@ -146,7 +146,7 @@ public class ScenarioManager : MonoBehaviour
 
             if(currentScenario == lastScenario)
             {
-                endGameButton.SetActive(true);
+                //endGameButton.SetActive(true);
                 return;
             }
 
@@ -157,8 +157,8 @@ public class ScenarioManager : MonoBehaviour
 
     public void EndGame()
     {
-        finalSceneScript.DoFinalScene(characterManager.selectedCharacters.ToArray());
-        endGameButton.SetActive(false);
+        finalSceneScript.DoFinalScene(characterManager.selectedCharacters.ToArray(), true);
+        //endGameButton.SetActive(false);
     }
 
     void SkipText()
@@ -186,7 +186,7 @@ public class ScenarioManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > 1)
+        if (timer > 2)
         {
             if (Input.GetKeyDown(KeyCode.Space) && isTyping)
             {
@@ -376,6 +376,7 @@ public class ScenarioManager : MonoBehaviour
                                 StartCoroutine(TextTyper(string.Format(currentScenario.partyCriticalFail, character.name), true));
                                 // SetContinueButton(true);
                                 //Errrr game over stuff then I guess? 
+                                finalSceneScript.DoFinalScene(characterManager.selectedCharacters.ToArray(), false);
                             }
                         }
                         else
