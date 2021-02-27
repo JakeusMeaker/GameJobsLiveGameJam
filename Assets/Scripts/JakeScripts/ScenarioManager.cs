@@ -34,6 +34,7 @@ public class ScenarioManager : MonoBehaviour
     [Header("Scenario UI Elements")]
     public Text scenarioTextBox;
     public GameObject restRoomContinueButton;
+    public GameObject endGameButton;
 
     private int partyMembersDown = 0;
 
@@ -128,7 +129,6 @@ public class ScenarioManager : MonoBehaviour
                 restRoomContinueButton.SetActive(true);
                 AudioManager.instance.Play(E_SFX.Heal);
 
-                //Probably a more elegant way of doing this
                 for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
                 {
                     if (characterManager.selectedCharacters[i].health < 3)
@@ -141,13 +141,14 @@ public class ScenarioManager : MonoBehaviour
             {
                 SetContinueButton(false);
             }
+
+            if(currentScenario == finalScenario)
+            {
+                endGameButton.SetActive(true);
+            }
+
             StartCurrentScenario();
             //Invoke("StartCurrentScenario", scenarioChangeTime);
-        }
-        else
-        {
-            //End game condititions here 
-
         }
     }
 
