@@ -22,7 +22,9 @@ public class ScenarioManager : MonoBehaviour
     private List<ScenarioSO> scenarioList = new List<ScenarioSO>();
 
     public ScenarioSO firstScenario;
-    public ScenarioSO finalScenario;
+    public ScenarioSO lastScenario;
+
+    public FinalScene finalScene;
 
     private Queue<ScenarioSO> scenarioQueue = new Queue<ScenarioSO>();
     private ScenarioSO currentScenario;
@@ -101,7 +103,7 @@ public class ScenarioManager : MonoBehaviour
             }
         }
 
-        scenarioQueue.Enqueue(finalScenario);
+        scenarioQueue.Enqueue(lastScenario);
     }
 
     public void NextScenario()
@@ -142,10 +144,9 @@ public class ScenarioManager : MonoBehaviour
                 SetContinueButton(false);
             }
 
-            if(currentScenario == finalScenario)
+            if(currentScenario == lastScenario)
             {
                 endGameButton.SetActive(true);
-                EndGame();
                 return;
             }
 
@@ -154,9 +155,10 @@ public class ScenarioManager : MonoBehaviour
         }
     }
 
-    private void EndGame()
+    public void EndGame()
     {
-     
+        finalScene.DoFinalScene(characterManager.selectedCharacters.ToArray());
+        endGameButton.SetActive(false);
     }
 
     void SkipText()
