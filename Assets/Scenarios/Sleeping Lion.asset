@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: Sleeping Lion
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 5c973259fe1019f40b783955c0e3c1f3, type: 3}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 0
+  scenarioText: "A huge lion lies sleeping on the smooth stone floor. Though it looks
+    peaceful right now, its claws look sharper than knives. There\u2019s no chance
+    anyone could fight this thing. How did it even get here?"
+  passTraitText: "{0} paces forth, their feet seeming to almost glide across the
+    ground, making no sound at all. The lion doesn\u2019t so much as bat an eyelid."
+  secondary1PassText: "Instead of leaving the lion, {0} approaches it, crouching
+    next to it as they begin to run their hand over its mane. The lion\u2019s eyes
+    snap open, staring right at {0}, but it remains motionless. A strange rumbling
+    sound emanates from the lion\u2026 Is it starting to purr? Instead of sticking
+    around to find out {0} raises their hands and slowly backs towards the exit.
+    The lion remains motionless, though its eyes do not leave {0}."
+  secondary2PassText: "The lion could wake up any second, and {0} isn\u2019t sticking
+    around to find out. With barely a moment\u2019s hesitation they dash for the
+    door. The lion\u2019s eyes snap awake, completely focused on {0} as it pounces
+    straight at them. But they are too fast! They duck and dive as the lion pounces
+    at them over and over, making the beast look clumsy as they reach the exit completely
+    unscathed."
+  luckyPassText: "That lion could wake up, and {0} isn\u2019t sticking around to
+    find out. After a quick glance at the lion, they dash for the door. The lion\u2019s
+    eyes snap awake, completely focused on {0} as it pounces straight at them. But
+    the lion\u2019s claw snags on the teddy bear where it was sleeping, tearing it
+    wide open and spraying stuffing across the ground. The lion spins in mid air,
+    roaring as it bounds back for the maimed bear. {0} doesn\u2019t waste any time
+    in making an exit."
+  failText: "The lion could wake up any second, and {0} isn\u2019t sticking around
+    to find out. After a quick glance at the lion, they dash for the door. The lion\u2019s
+    eyes snap awake, completely focused on {0} as it pounces towards them, razor
+    claws fortunately only grazing their side. Somewhat bloodied, {0} makes a hasty
+    exit, and the placated lion curls up and returns to sleep."
+  characterCriticalFail: "The lion could wake up any second, and {0} isn\u2019t sticking
+    around to find out. After a quick glance at the lion, they dash for the door.
+    The lion\u2019s eyes snap awake, completely focused on {0} as it pounces towards
+    them, razor claws slicing straight through their throat. Lifeless, {0} drops
+    like a sack of bricks. The placated lion curls up around their prone form and
+    returns to sleep. Recovering the body seems out of the question..."
+  partyCriticalFail: "The lion could wake up any second, and {0} isn\u2019t sticking
+    around to find out. After a quick glance at the lion, they dash for the door.
+    The lion\u2019s eyes snap awake, completely focused on {0} as it pounces towards
+    them, razor claws slicing straight through their throat. Lifeless, {0} drops
+    like a sack of bricks. The lion curls up around their prone form and returns
+    to sleep, content with its snack for later."
+  traitToPass: 6
+  secondaryTraits: 0300000002000000

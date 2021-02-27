@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: DemonChild
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 214eeaad8339d384ca93a9985bc9cfb2, type: 3}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 0
+  scenarioText: "At the edge of the room sits a creature, sobbing despondently into
+    its arms. It looks like a child, but horns sprout from its forehead, and a tail
+    quivers against the wall. It looks up when it hears the footfalls. \u201CAre
+    you here to help me?\u201D "
+  passTraitText: "{0} Smiles at the child, kneeling before it and asking what\u2019s
+    wrong. \u201CI can\u2019t find my pets!\u201D It sobs in response. {0} expresses
+    great sympathy, and before too long, they are rocking it to sleep, singing a
+    lullaby. The child drifts off with a smile on its face. "
+  secondary1PassText: "{0} chuckles gently. They sit some distance from the child,
+    who at first eyes them distrustfully. After a few silly jokes and a story, they
+    seem to have calmed down, and {0} explains they need to keep moving. \u201CIf
+    you see my pets, tell them to come back!\u201D says the child."
+  secondary2PassText: "{0} Smiles at the child-creature, crouching before it and
+    asking what\u2019s wrong. \u201CI can\u2019t find my pets!\u201D It sobs in response.
+    {0} expresses great sympathy, and opens their arms to offer a hug. When the creature
+    stumbles forward to reciprocate, {0} moves quickly, kicking out its feet, and
+    pushing its face down into the floor. Not stopping to see if it\u2019ll get back
+    up, {0} quickly steps over its body and rushes out the door."
+  luckyPassText: '{0} steers well clear of the child, heading straight for the door
+    instead. As they get closer however, the child-creature screams in rage, and
+    scampers across the ground on all fours, straight at them. As {0} starts to run,
+    they trip over a loose shoelace lace and fall flat on their face. The child stops
+    at once, giggling, and then laughing at the sight. {0} chuckles nervously as
+    they get up, and then rush straight out of the door.'
+  failText: "{0} steers well clear of the child, heading straight for the door instead.
+    As they get closer however, the child screams in rage, and scampers across the
+    ground on all fours, straight at them. As {0} starts to run, the child-creature
+    dives at them, slashing at their legs with razor sharp nails. {0} screams in
+    pain, but as soon as they do,  the child stops, giggling, and then laughing.
+    \u201CYou scream funny,\u201D it says. {0} forces a nervous chuckle, and then
+    limps straight out of the door."
+  characterCriticalFail: "{0} steers well clear of the child, heading straight for
+    the door instead. As they get closer however, the child screams in rage, and
+    scampers across the ground on all fours, straight at them. As {0} starts to run,
+    the child-creature dives at them, clambering up their chest and slashing at their
+    face repeatedly with razor sharp nails. {0}\u2019s howls of pain eventually gurgle
+    to nothing, and the sound of childlike laughter fills the air instead. With the
+    child-creature distracted, the door is unguarded. It doesn\u2019t look like there\u2019s
+    anything left of {0} anyway."
+  partyCriticalFail: "{0} steers well clear of the child, heading straight for the
+    door instead. As they get closer however, the child screams in rage, and scampers
+    across the ground on all fours, straight at them. As {0} starts to run, the child-creature
+    dives at them, clambering up their chest and slashing at their face repeatedly
+    with razor sharp nails. {0}\u2019s howls of pain eventually gurgle to nothing,
+    and the sound of childlike laughter fills the air instead."
+  traitToPass: 8
+  secondaryTraits: 050000000a000000

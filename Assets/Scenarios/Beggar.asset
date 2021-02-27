@@ -30,12 +30,12 @@ MonoBehaviour:
     they can offer is a little empathy. The figure considers this for a moment, before
     slowly raising his hand towards the door, which magically swings open. \u201CBe
     on your way then.\u201D"
-  secondary2PassText: Better to not take any chances {0} cautiously approaches, watching
-    for sudden movements. They crouch next to the figure, barely hesitating before
-    they whip out a knife and thrust it straight into the figure, who does absolutely
-    nothing to resist. As the knife enters, the robes fold away around it, falling
-    into a pile on the floor, and revealing no body at all. {0} is nonetheless relieved
-    when they cross the room and pull the door open with ease.
+  secondary2PassText: Better to not take any chances! {0} cautiously approaches,
+    watching for sudden movements. They crouch next to the figure, barely hesitating
+    before they whip out a knife and thrust it straight into the figure, who does
+    absolutely nothing to resist. As the knife enters, the robes fold away around
+    it, falling into a pile on the floor, and revealing no body at all. {0} is nonetheless
+    relieved when they cross the room and pull the door open with ease.
   luckyPassText: "{0} stares suspiciously at the figure for a moment, trying to determine
     any ill intent, before digging through their pockets for some coins to give the
     figure. After some rummaging around, they find a single gold coin. How did that

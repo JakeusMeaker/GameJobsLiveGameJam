@@ -9,7 +9,7 @@ public class ScenarioManager : MonoBehaviour
     public SpriteRenderer backgroundSprite;
     public SpriteRenderer foregroundSprite;
 
-    [Header("Scenario Generation"), Range(3, 9)]
+    [Header("Scenario Generation"), Range(3, 20)]
     public int amountOfScenarios;
 
     //[Range(0.5f, 10f)]
@@ -154,6 +154,7 @@ public class ScenarioManager : MonoBehaviour
     void SkipText()
     {
         StopAllCoroutines();
+        isTyping = false;
         scenarioTextBox.text = "";
         scenarioTextBox.text = currentText;
         if (enableContinueButton == true)
@@ -293,6 +294,9 @@ public class ScenarioManager : MonoBehaviour
                     characterManager.AdjustStamina(character, -1);    //UI changes to stamina bar should be done here
                     AudioManager.instance.Play(E_SFX.Success);
 
+                    if (character.health == 0)
+                    StartCoroutine(TextTyper(string.Format(currentScenario.passTraitText + "\nUnfortuantely, {0} is exhausted from the effort and collapses. They won't be able to continue.", character.characterName), true));
+                    else
                     StartCoroutine(TextTyper(string.Format(currentScenario.passTraitText, character.characterName), true));
 
                     break;
@@ -301,23 +305,30 @@ public class ScenarioManager : MonoBehaviour
                     characterManager.AdjustStamina(character, -1);    //UI changes to stamina bar should be done here
                     AudioManager.instance.Play(E_SFX.Success);
 
-                    StartCoroutine(TextTyper(string.Format(currentScenario.secondary1PassText, character.characterName), true));
+                    if (character.health == 0)
+                        StartCoroutine(TextTyper(string.Format(currentScenario.secondary1PassText + "\nUnfortuantely, {0} is exhausted from the effort and collapses. They won't be able to continue.", character.characterName), true));
+                    else
+                        StartCoroutine(TextTyper(string.Format(currentScenario.secondary1PassText, character.characterName), true));
                     //SetContinueButton(true);
                     break;
 
                 case E_PassType.Secondary2Pass:
                     characterManager.AdjustStamina(character, -1);    //UI changes to stamina bar should be done here
                     AudioManager.instance.Play(E_SFX.Success);
-
-                    StartCoroutine(TextTyper(string.Format(currentScenario.secondary2PassText, character.characterName), true));
-                    //SetContinueButton(true);
+                    if (character.health == 0)
+                        StartCoroutine(TextTyper(string.Format(currentScenario.secondary2PassText + "\nUnfortuantely, {0} is exhausted from the effort and collapses. They won't be able to continue.", character.characterName), true));
+                    else
+                        StartCoroutine(TextTyper(string.Format(currentScenario.secondary2PassText, character.characterName), true));
                     break;
 
                 case E_PassType.LuckyPass:
                     characterManager.AdjustStamina(character, -1);    //UI changes to stamina bar should be done here
                     AudioManager.instance.Play(E_SFX.Success);
 
-                    StartCoroutine(TextTyper(string.Format(currentScenario.luckyPassText, character.characterName), true));
+                    if (character.health == 0)
+                        StartCoroutine(TextTyper(string.Format(currentScenario.luckyPassText + "\nUnfortuantely, {0} is exhausted from the effort and collapses. They won't be able to continue.", character.characterName), true));
+                    else
+                        StartCoroutine(TextTyper(string.Format(currentScenario.luckyPassText, character.characterName), true));
                     // SetContinueButton(true);
                     break;
 
@@ -328,11 +339,12 @@ public class ScenarioManager : MonoBehaviour
                     // Could swap int of dead characters for a loop that checks for not dead before game over?
                     // Love you
 
+                    characterManager.AdjustStamina(character, -1);
+                    characterManager.AdjustHealth(character, -1);
+
                     if (character.health > 0)
                     {
                         StartCoroutine(TextTyper(string.Format(currentScenario.failText, character.characterName), true));
-                        characterManager.AdjustStamina(character, -1);
-                        characterManager.AdjustHealth(character, -1);
                         AudioManager.instance.Play(E_SFX.Injury);
                     }
                     else
@@ -363,6 +375,7 @@ public class ScenarioManager : MonoBehaviour
                     }
                     break;
             }
+
         }
     }
 

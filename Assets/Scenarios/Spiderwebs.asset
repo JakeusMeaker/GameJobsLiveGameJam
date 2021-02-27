@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: Spiderwebs
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: ed58248c2e32ec74aa4115accd581ae8, type: 3}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 0
+  scenarioText: "The room is full of thick, sticky cobwebs. There are tiny, almost
+    imperceptible movements from within. The webs stretch from wall to wall, floor
+    to ceiling. The only way onwards\u2026 is through."
+  passTraitText: '{0} adopts a broad, sturdy pose and marches forwards. Webs stick
+    to them, but they keep powering on. Even as tiny spiders begin to rush over their
+    body, {0} seems unfazed, and every step comes right after the last until they
+    reach the other side, leaving a clear trail of broken webs in their wake.'
+  secondary1PassText: "{0} rubs their hands together and starts to push through the
+    webs. Where they can, they slip through gaps, and where they can\u2019t, they
+    tear the weaker areas of the web to progress. Tiny spiders begin to rush over
+    their body, but {0} quickly brushes the worst of them off. Sure enough, before
+    long they\u2019ve reached the other side, leaving a small path through in their
+    wake."
+  secondary2PassText: '{0} flexes their muscles, and rushes into the webs, arms a
+    flurry as they tear through the webs. Tiny spiders begin to rush over their body
+    but {0} slaps most of them away, tearing ahead until they reach the other side,
+    leaving a clear trail of broken webs in their wak'
+  luckyPassText: "{0} mumbles a few words of self encouragement and starts to push
+    through the webs. The webs stick to them like glue as they go, tangling in their
+    hair and catching their limbs. Before long, they are completely stuck. Tiny spiders
+    begin to rush over the webs towards them, but {0} writhes like a wounded animal.
+    Miraculously the webs break, dropping them to the ground where they frantically
+    crawl forward. Sure enough, before long they\u2019ve reached the other side,
+    leaving a small path through in their wake."
+  failText: '{0} mumbles a few words of self encouragement and starts to push through
+    the webs. The webs stick to them like glue as they go, tangling in their hair
+    and catching their limbs. Before long, they are completely stuck. Tiny spiders
+    begin to rush over their body, biting at their exposed flesh. They thrash about
+    until the webs break, rushing through blindly but just make it to the other side,
+    dripping spiders. A small path of trampled web lies in their wake.'
+  characterCriticalFail: '{0} mumbles a few words of self encouragement and starts
+    to push through the webs. The webs stick to them like glue as they go, tangling
+    in their hair and catching their limbs. Before long, they are completely stuck.
+    Tiny spiders begin to rush over their body, biting at their exposed flesh. They
+    call for help, but to no avail. The spiders rush over their face and into their
+    mouth, stifling their cries, until all that remains is a wriggling black shape
+    being dragged into the shadows. Fortunately, the way through is half dug already.
+    Only one will fall victim to the spiders today.'
+  partyCriticalFail: '{0} mumbles a few words of self encouragement and starts to
+    push through the webs. The webs stick to them like glue as they go, tangling
+    in their hair and catching their limbs. Before long, they are completely stuck.
+    Tiny spiders begin to rush over their body, biting at their exposed flesh. They
+    scream, but to no avail. The spiders rush over their face and into their mouth,
+    stifling their cries, until all that remains is a wriggling black shape being
+    dragged into the shadows.'
+  traitToPass: 1
+  secondaryTraits: 0200000000000000
