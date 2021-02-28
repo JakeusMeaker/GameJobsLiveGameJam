@@ -109,7 +109,7 @@ public class ScenarioManager : MonoBehaviour
                 {
                     // This was supposed to create a rest room for the mid game but caused too many issues
                     if (!scenarioQueue.Contains(scenario))
-                            scenarioQueue.Enqueue(scenario);
+                        scenarioQueue.Enqueue(scenario);
                     //{
                     //    if (scenarioQueue.Count == (amountOfScenarios * 0.5f) + 1)
                     //        scenarioQueue.Enqueue(restRoom);
@@ -155,6 +155,7 @@ public class ScenarioManager : MonoBehaviour
             if (currentScenario == lastScenario)
             {
                 SetContinueButton(false);
+                canUseTrait = false;
                 StartCurrentScenario();
                 endGameButton.SetActive(true);
                 return;
@@ -162,18 +163,13 @@ public class ScenarioManager : MonoBehaviour
 
             StartCurrentScenario();
         }
-        else
-        {
-            canUseTrait = false;
-            StartCurrentScenario();
-        }
     }
 
     public void EndGame()
     {
         scenarioTextBox.text = "";
-        endGameButton.SetActive(false);
         finalSceneScript.DoFinalScene(characterManager.selectedCharacters.ToArray(), true);
+        endGameButton.SetActive(false);
     }
 
     void SkipText()
