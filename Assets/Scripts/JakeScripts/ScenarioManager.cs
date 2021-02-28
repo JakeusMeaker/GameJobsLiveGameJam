@@ -107,8 +107,6 @@ public class ScenarioManager : MonoBehaviour
                 ScenarioSO scenario = scenarioList[UnityEngine.Random.Range(0, scenarioList.Count)];
                 if (scenarioQueue != null)
                 {
-                    scenarioQueue.Enqueue(scenario);
-
                     // This was supposed to create a rest room for the mid game but caused too many issues
                     if (!scenarioQueue.Contains(scenario))
                             scenarioQueue.Enqueue(scenario);
@@ -153,28 +151,6 @@ public class ScenarioManager : MonoBehaviour
         if (scenarioQueue.Count > 0)
         {
             currentScenario = scenarioQueue.Peek();
-            //if (currentScenario.isRestRoom)
-            //{
-            //    AudioManager.instance.Play(E_SFX.Heal);
-
-            //    for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
-            //    {
-            //        if (characterManager.selectedCharacters[i].health < 3)
-            //            characterManager.AdjustHealth(characterManager.selectedCharacters[i], healthGainInRestRoomAmount);
-            //        if (characterManager.selectedCharacters[i].stamina < 3)
-            //            characterManager.AdjustStamina(characterManager.selectedCharacters[i], staminaGainInRestRoomAmount);
-            //    }
-
-            //    restRoomContinueButton.SetActive(true);
-            //}
-            //else
-            //{
-            //}
-            if (currentScenario.isRestRoom == true)
-                SetContinueButton(true);
-            else
-                SetContinueButton(false);
-
 
             if (currentScenario == lastScenario)
             {
@@ -245,6 +221,10 @@ public class ScenarioManager : MonoBehaviour
         else
             foregroundSprite.sprite = null;
 
+        if (currentScenario.isRestRoom == true)
+            SetContinueButton(true);
+        else
+            SetContinueButton(false);
 
         StopCoroutine("TextTyper");
         if (!isTyping)
