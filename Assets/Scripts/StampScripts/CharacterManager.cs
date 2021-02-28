@@ -126,14 +126,10 @@ public class CharacterManager : MonoBehaviour
 
         _char.stamina += adjust;
         _char.stamina = Mathf.Clamp(_char.stamina, 0, 2);
-        for (int i = 0; i < characterUI.Length; i++)
-        {
-            if (_char == characterUI[i].thisCharacter)
-            {
-                characterUI[i].stamina[_char.stamina].sprite = emptyStaminaSprite;
-            }
-        }
+
+        HandleStaminaUI(_char, _char.stamina);
     }
+
 
     public void AdjustHealth(SO_Character _char, int adjust)
     {
@@ -146,36 +142,103 @@ public class CharacterManager : MonoBehaviour
         {
             CameraShake.instance.ShakeCamera(.5f, .5f);
             audioManager.Play(E_SFX.Injury);
-        }
 
-        for (int i = 0; i < characterUI.Length; i++)
-        {
-            if (_char == characterUI[i].thisCharacter)
+            for (int i = 0; i < characterUI.Length; i++)
             {
-                if (_char.health > 0)
+                if (_char == characterUI[i].thisCharacter)
                 {
-                    characterUI[i].health[_char.health].sprite = emptyHealthSprite;
-                    switch (i)
+                    if (_char.health > 0)
                     {
-                        case 0:
-                            StartCoroutine(InjuryLerp(character1Sprite, 1f));
-                            break;
-                        case 1:
-                            StartCoroutine(InjuryLerp(character2Sprite, 1f));
-                            break;
-                        case 2:
-                            StartCoroutine(InjuryLerp(character3Sprite, 1f));
-                            break;
-                        default:
-                            break;
+                        switch (i)
+                        {
+                            case 0:
+                                StartCoroutine(InjuryLerp(character1Sprite, 1f));
+                                break;
+                            case 1:
+                                StartCoroutine(InjuryLerp(character2Sprite, 1f));
+                                break;
+                            case 2:
+                                StartCoroutine(InjuryLerp(character3Sprite, 1f));
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        KillCharacter(_char);
                     }
                 }
-                else
-                {
-                    characterUI[i].health[_char.health].sprite = emptyHealthSprite;
-                    KillCharacter(_char);
-                }
             }
+        }
+
+        HandleHealthUI(_char, _char.health);
+    }
+    void HandleStaminaUI(SO_Character character, int stamina)
+    {
+        int charIndex = 0;
+        Mathf.Clamp(stamina, 0, 2);
+        for (int i = 0; i < characterUI.Length; i++)
+        {
+            if (character == characterUI[i].thisCharacter)
+            {
+                charIndex = i;
+            }
+        }
+        switch (stamina)
+        {
+            case 0:
+                characterUI[charIndex].stamina[0].sprite = emptyStaminaSprite;
+                characterUI[charIndex].stamina[1].sprite = emptyStaminaSprite;
+                break;
+            case 1:
+                characterUI[charIndex].stamina[0].sprite = fullStaminaSprite;
+                characterUI[charIndex].stamina[1].sprite = emptyStaminaSprite;
+                break;
+            case 2:
+                characterUI[charIndex].stamina[0].sprite = fullStaminaSprite;
+                characterUI[charIndex].stamina[1].sprite = fullStaminaSprite;
+                break;
+            default:
+                break;
+        }
+    }
+
+    void HandleHealthUI(SO_Character character, int health)
+    {
+        int charIndex = 0;
+        Mathf.Clamp(health, 0, 3);
+        for (int i = 0; i < characterUI.Length; i++)
+        {
+            if (character == characterUI[i].thisCharacter)
+            {
+                charIndex = i;
+            }
+        }
+        switch (health)
+        {
+            case 0:
+                characterUI[charIndex].health[0].sprite = emptyHealthSprite;
+                characterUI[charIndex].health[1].sprite = emptyHealthSprite;
+                characterUI[charIndex].health[2].sprite = emptyHealthSprite;
+                break;
+            case 1:
+                characterUI[charIndex].health[0].sprite = fullHealthSprite;
+                characterUI[charIndex].health[1].sprite = emptyHealthSprite;
+                characterUI[charIndex].health[2].sprite = emptyHealthSprite;
+                break;
+            case 2:
+                characterUI[charIndex].health[0].sprite = fullHealthSprite;
+                characterUI[charIndex].health[1].sprite = fullHealthSprite;
+                characterUI[charIndex].health[2].sprite = emptyHealthSprite;
+                break;
+            case 3:
+                characterUI[charIndex].health[0].sprite = fullHealthSprite;
+                characterUI[charIndex].health[1].sprite = fullHealthSprite;
+                characterUI[charIndex].health[2].sprite = fullHealthSprite;
+                break;
+            default:
+                break;
         }
     }
 

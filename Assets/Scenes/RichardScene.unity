@@ -3059,7 +3059,7 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 235700435, guid: e56beab46ead70a40aa4d1ea4ddc6f3f, type: 3}
       propertyPath: healthGainInRestRoomAmount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 235700435, guid: e56beab46ead70a40aa4d1ea4ddc6f3f, type: 3}
       propertyPath: staminaGainInRestRoomAmount
@@ -4266,6 +4266,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8090829115593755517, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
         type: 3}
+      propertyPath: thingsToDisable.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090829115593755517, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
       propertyPath: thingsToDisable.Array.data[0]
       value: 
       objectReference: {fileID: 235700434}
@@ -4279,5 +4284,10 @@ PrefabInstance:
       propertyPath: thingsToDisable.Array.data[2]
       value: 
       objectReference: {fileID: 954174651}
+    - target: {fileID: 8090829115593755517, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3,
+        type: 3}
+      propertyPath: thingsToDisable.Array.data[3]
+      value: 
+      objectReference: {fileID: 568095843}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3022e2fa663ce9d4cb9da69bfe05f2a3, type: 3}
