@@ -10,7 +10,7 @@ public class SO_Character : ScriptableObject
     public E_Trait firstTrait;
     public E_Trait secondTrait;
 
-    public int stamina = 3;
+    public int stamina = 2;
     public int health = 3;
 
    public bool isDead = false;
@@ -20,7 +20,7 @@ public class SO_Character : ScriptableObject
         GenerateName();
         GenerateTraits();
         health = 3;
-        stamina = 3;
+        stamina = 2;
 
         isDead = false;
 

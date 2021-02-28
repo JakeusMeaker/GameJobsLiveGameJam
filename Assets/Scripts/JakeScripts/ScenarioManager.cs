@@ -108,7 +108,9 @@ public class ScenarioManager : MonoBehaviour
 
     public void NextScenario()
     {
-
+        StopAllCoroutines();
+        canUseTrait = false;
+        scenarioTextBox.text = "";
         StartCoroutine(IE_LoadNextScene());
     }
 
@@ -177,15 +179,6 @@ public class ScenarioManager : MonoBehaviour
         {
             SetContinueButton(true);
         }
-
-        if (currentScenario.isRestRoom)
-        {
-            canUseTrait = false;
-        }
-        else
-        {
-            canUseTrait = true;
-        }
     }
 
     private void Update()
@@ -201,10 +194,10 @@ public class ScenarioManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            finalSceneScript.DoFinalScene(characterManager.selectedCharacters.ToArray(), true);
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    finalSceneScript.DoFinalScene(characterManager.selectedCharacters.ToArray(), true);
+        //}
     }
 
     public void StartCurrentScenario()
@@ -233,9 +226,20 @@ public class ScenarioManager : MonoBehaviour
     {
         currentText = textToType;
         if (isContinue)
+        {
             enableContinueButton = true;
+            canUseTrait = false;
+        }
         else
+        {
             enableContinueButton = false;
+            canUseTrait = true;
+        }
+
+        if (currentScenario.isRestRoom)
+        {
+            canUseTrait = false;
+        }
 
         scenarioTextBox.text = "";
         isTyping = true;
@@ -245,14 +249,7 @@ public class ScenarioManager : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        if (currentScenario.isRestRoom)
-        {
-            canUseTrait = false;
-        }
-        else
-        {
-            canUseTrait = true;
-        }
+
 
         isTyping = false;
 
@@ -266,6 +263,10 @@ public class ScenarioManager : MonoBehaviour
     {
         if (canUseTrait)
         {
+            StopAllCoroutines();
+            canUseTrait = false;
+            scenarioTextBox.text = "";
+
             canUseTrait = false;
             if (trait == scenarioQueue.Peek().traitToPass)
             {

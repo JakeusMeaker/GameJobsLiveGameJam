@@ -352,6 +352,9 @@ MonoBehaviour:
   voiceOvers:
   - {fileID: 8300000, guid: d1f0b81e912326247939eabff33edc64, type: 3}
   - {fileID: 8300000, guid: cd8876bdc00c69544b80357a1a496d07, type: 3}
+  - {fileID: 8300000, guid: 7f12778addc3fc345a2873b5cfdce24c, type: 3}
+  - {fileID: 8300000, guid: 14183add14f4b584fb7410f8e451bbad, type: 3}
+  - {fileID: 8300000, guid: 721a6b4f52edc414988bf45218947cb2, type: 3}
 --- !u!82 &442959690
 AudioSource:
   m_ObjectHideFlags: 0
