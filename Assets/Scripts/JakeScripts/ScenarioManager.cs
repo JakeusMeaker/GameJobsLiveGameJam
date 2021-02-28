@@ -123,9 +123,10 @@ public class ScenarioManager : MonoBehaviour
 
     public void LoadNextScenario()
     {
+        scenarioQueue.Dequeue();
+
         if (scenarioQueue.Count > 0)
         {
-            scenarioQueue.Dequeue();
             currentScenario = scenarioQueue.Peek();
             if (currentScenario.isRestRoom)
             {
@@ -147,12 +148,16 @@ public class ScenarioManager : MonoBehaviour
 
             if (currentScenario == lastScenario)
             {
-                //endGameButton.SetActive(true);
+                StartCurrentScenario();
                 return;
             }
 
             StartCurrentScenario();
             //Invoke("StartCurrentScenario", scenarioChangeTime);
+        }
+        else
+        {
+            EndGame();
         }
     }
 
