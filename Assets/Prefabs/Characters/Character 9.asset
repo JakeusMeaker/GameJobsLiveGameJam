@@ -15,5 +15,6 @@ MonoBehaviour:
   characterName: Chaz Shee
   firstTrait: 10
   secondTrait: 6
-  stamina: 3
+  stamina: 2
   health: 3
+  isDead: 0
