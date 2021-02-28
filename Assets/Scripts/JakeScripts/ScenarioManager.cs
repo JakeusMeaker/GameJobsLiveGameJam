@@ -9,6 +9,8 @@ public class ScenarioManager : MonoBehaviour
     public SpriteRenderer backgroundSprite;
     public SpriteRenderer foregroundSprite;
 
+    public bool _DebugBool;
+
     [Header("Scenario Generation"), Range(3, 20)]
     public int amountOfScenarios;
 
@@ -37,7 +39,7 @@ public class ScenarioManager : MonoBehaviour
     [Header("Scenario UI Elements")]
     public Text scenarioTextBox;
     public GameObject restRoomContinueButton;
-    //public GameObject endGameButton;
+    public GameObject endGameButton;
 
     private int partyMembersDown = 0;
 
@@ -79,29 +81,36 @@ public class ScenarioManager : MonoBehaviour
     {
         scenarioQueue.Enqueue(firstScenario);
 
-        while (scenarioQueue.Count < amountOfScenarios - 1)
+        if (_DebugBool)
         {
-            //This was for if only 1 scenario was in the scenario list
-            if (scenarioList.Count == 1)
+            scenarioQueue.Enqueue(restRoom);
+        }
+        else
+        {
+            while (scenarioQueue.Count < amountOfScenarios - 1)
             {
-                scenarioQueue.Enqueue(scenarioList[0]);
-                return;
-            }
-
-            ScenarioSO scenario = scenarioList[UnityEngine.Random.Range(0, scenarioList.Count)];
-            if (scenarioQueue != null)
-            {
-                if (!scenarioQueue.Contains(scenario))
+                //This was for if only 1 scenario was in the scenario list
+                if (scenarioList.Count == 1)
                 {
-                    if (scenarioQueue.Count == (amountOfScenarios * 0.5f) + 1 )
-                        scenarioQueue.Enqueue(restRoom);
-                    else
-                        scenarioQueue.Enqueue(scenario);
+                    scenarioQueue.Enqueue(scenarioList[0]);
+                    return;
                 }
-            }
-            else
-            {
-                scenarioQueue.Enqueue(scenario);
+
+                ScenarioSO scenario = scenarioList[UnityEngine.Random.Range(0, scenarioList.Count)];
+                if (scenarioQueue != null)
+                {
+                    if (!scenarioQueue.Contains(scenario))
+                    {
+                        if (scenarioQueue.Count == (amountOfScenarios * 0.5f) + 1)
+                            scenarioQueue.Enqueue(restRoom);
+                        else
+                            scenarioQueue.Enqueue(scenario);
+                    }
+                }
+                else
+                {
+                    scenarioQueue.Enqueue(scenario);
+                }
             }
         }
 
@@ -134,7 +143,6 @@ public class ScenarioManager : MonoBehaviour
             currentScenario = scenarioQueue.Peek();
             if (currentScenario.isRestRoom)
             {
-                restRoomContinueButton.SetActive(true);
                 AudioManager.instance.Play(E_SFX.Heal);
 
                 for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
@@ -144,6 +152,8 @@ public class ScenarioManager : MonoBehaviour
                     if (characterManager.selectedCharacters[i].stamina < 3)
                         characterManager.AdjustStamina(characterManager.selectedCharacters[i], staminaGainInRestRoomAmount);
                 }
+
+                restRoomContinueButton.SetActive(true);
             }
             else
             {
@@ -153,22 +163,19 @@ public class ScenarioManager : MonoBehaviour
             if (currentScenario == lastScenario)
             {
                 StartCurrentScenario();
+                endGameButton.SetActive(true);
                 return;
             }
 
             StartCurrentScenario();
-            //Invoke("StartCurrentScenario", scenarioChangeTime);
-        }
-        else
-        {
-            EndGame();
         }
     }
 
     public void EndGame()
     {
+        scenarioTextBox.text = "";
+        endGameButton.SetActive(false);
         finalSceneScript.DoFinalScene(characterManager.selectedCharacters.ToArray(), true);
-        //endGameButton.SetActive(false);
     }
 
     void SkipText()
@@ -215,7 +222,7 @@ public class ScenarioManager : MonoBehaviour
             foregroundSprite.sprite = null;
 
 
-        StopAllCoroutines();
+        StopCoroutine("TextTyper");
         if (!isTyping)
         {
             if (currentScenario.isRestRoom)
@@ -227,6 +234,7 @@ public class ScenarioManager : MonoBehaviour
 
     IEnumerator TextTyper(string textToType, bool isContinue)
     {
+        isTyping = true;
         currentText = textToType;
         if (isContinue)
         {
@@ -245,21 +253,17 @@ public class ScenarioManager : MonoBehaviour
         }
 
         scenarioTextBox.text = "";
-        isTyping = true;
         for (int i = 0; i < textToType.Length; i++)
         {
             scenarioTextBox.text += textToType[i];
             yield return new WaitForSeconds(0.05f);
         }
 
-
-
-        isTyping = false;
-
         if (isContinue)
         {
             SetContinueButton(true);
         }
+        isTyping = false;
     }
 
     public void TraitSelected(E_Trait trait, SO_Character character)
