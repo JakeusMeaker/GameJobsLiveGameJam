@@ -15,7 +15,9 @@ MonoBehaviour:
   backgroundImage: {fileID: 21300000, guid: e4dda4dfe79fdf74daab66c0cf36d9c6, type: 3}
   foregroundImage: {fileID: 0}
   isRestRoom: 0
-  scenarioText: 
+  scenarioText: "Sallow, sickly moonlight spills into the atrium, but it couldn\u2019t
+    be a more relieving sight. Through those doors lies the cool night air and with
+    it, freedom. The ordeal is finally over."
   passTraitText: 
   secondary1PassText: 
   secondary2PassText: 

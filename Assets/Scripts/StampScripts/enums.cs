@@ -9,7 +9,7 @@
     Sneaky,
     Lucky,
     Kind,
-    Obversvant,
+    Observant,
     Ruthless
 }
 

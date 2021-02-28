@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: Jester
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 74a19e12d019d5a429e4fc55609b8544, type: 3}
+  foregroundImage: {fileID: 21300000, guid: 4b47b15bb0722744d8d9731f7cce4302, type: 3}
+  isRestRoom: 0
+  scenarioText: "At first the room seems dark and empty, when suddenly the upper
+    torso of an enormous mechanical jester springs down from the ceiling. \u201CSo
+    VERY bored!\u201D It sings in squeaky rusted tones. \u201CInput entertainment
+    immediately!\u201D"
+  passTraitText: "{0} has practically been preparing all their life for this moment.
+    Years of working on their stand up skit, now they finally have an audience! {0}
+    starts with the joke about the mailman, and ends with a series of elaborate mimes.
+    All the while, the jester spins, laughs and claps. \u201CGood, GOOD! Yes! You
+    are LITTLE Jester!\u201D The jester opens the exit door with its enormous hand.
+    \u201CGo now, Little Jester!\u201D"
+  secondary1PassText: "{0} suspects they may share a sense of humor with the terrifying
+    jester. They launch into a tirade of pointed jokes about various topics, all
+    the while the jester laughs and claps. When {0} finishes, the jester speaks.
+    \u201CMOST HUMOROUS. How does it think up SUCH rubbish? Stupid creature is HILARIOUS
+    to Jester.\u201D The jester opens the exit door with its enormous hand. \u201CGo
+    now, stupid creature!\u201D"
+  secondary2PassText: "{0} suggests they play a game together. The jester spins angrily.
+    \u201CJester does NOT like games. Jester does not like LOSING.\u201D {0} sweats
+    a little, but draws some three by three grids on the dusty floor, explaining
+    the rules of tic-tac-toe. They spend the next few minutes desperately trying
+    to lose the game to the incompetent Jester, who claps and laughs as it wins.
+    \u201CJester is good at games! Yes! You are GOOD teacher!\u201D The jester opens
+    the exit door with its enormous hand. \u201CGo now, good teacher!\u201D"
+  luckyPassText: "{0} isn\u2019t really sure what kind of thing the giant jester
+    finds entertaining. They deliver a few poorly remembered knock knock jokes, but
+    the jester spins angrily. \u201CNo NO! This is NOT entertaining! I will SHOW
+    you!\u201D The jester clears its throat, a few drops of engine oil trickling
+    out of its mouth. \u201CWhy did the MONKEY fall out of the tree?\u201D it pauses
+    for effect. \u201CBecause it was DEAD!\u201D The jester claps and laughs at its
+    own joke, before opening the exit door with its enormous hand. \u201CGo now,
+    silly creature.\u201D"
+  failText: "{0} isn\u2019t really sure what kind of thing the giant jester finds
+    entertaining. They deliver a few poorly remembered knock knock jokes, but the
+    jester spins angrily. \u201CNo NO! This is NOT entertaining! I will SHOW you!\u201D
+    The jester picks up {0} with its gigantic hands, tossing them about like a ragdoll.
+    \u201CDANCE, silly creature!\u201D Unaware of the frailty of a human body, it
+    flings them about with tremendous force, before dropping them, bloodied, back
+    on the ground and opening the exit door with its enormous hand. \u201CGo now,
+    silly creature.\u201D\r\n"
+  characterCriticalFail: "{0} isn\u2019t really sure what kind of thing the giant
+    jester finds entertaining. They deliver a few poorly remembered knock knock jokes,
+    but the jester spins angrily. \u201CNo NO! This is NOT entertaining! I will SHOW
+    you!\u201D The jester picks up {0} with its gigantic hands, tossing them about
+    like a ragdoll. \u201CDANCE, silly creature!\u201D Unaware of the frailty of
+    a human body, it flings them about with tremendous force, before dropping their
+    broken body into a crumpled pile on the floor. \u201CDISAPPOINTING. Boring creatures.\u201D
+    The jester retreats back into the shadows of the ceiling"
+  partyCriticalFail: "{0} isn\u2019t really sure what kind of thing the giant jester
+    finds entertaining. Perhaps some jokes are a safe bet. They deliver a few poorly
+    remembered knock knock jokes, but the jester spins angrily. \u201CNo NO! This
+    is NOT entertaining! I will SHOW you!\u201D The jester picks up {0} with its
+    gigantic hands, tossing them about like a ragdoll. \u201CDANCE, silly creature!\u201D
+    Unaware of the frailty of a human body, it flings them about with tremendous
+    force, shattering their bones. \u201CYES! Excellent puppet! I will keep it!\u201D
+    The jester retreats back into the shadows of the ceiling, taking {0} with them."
+  traitToPass: 5
+  secondaryTraits: 0a00000008000000

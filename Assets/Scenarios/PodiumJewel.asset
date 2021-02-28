@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: PodiumJewel
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 788607f5ea4ea7e40ab43939cb9c702d, type: 3}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 0
+  scenarioText: "A heavy, glittering jewel rests on a central pedestal. The door
+    has a space that looks to fit the jewel exactly. It\u2019s obvious that the pedestal
+    must be trapped in some way, but less obvious how.\r\n"
+  passTraitText: "{0} cracks their knuckles. They always thought that Indiana Jones
+    sucked at this. They eye up the jewel, sliding a pencil case out of their backpack,
+    and removing some of the stationary until they think the weights match. Then
+    slowly, oh so slowly, they slide the jewel off, as they slide the case on. Perfect!
+    {0}\u2019s sleight of hand knows no equal. The jewel slides into the slot in
+    the door, which creaks open."
+  secondary1PassText: "If there\u2019s a trap, it can be found, and if it can be
+    found, {0} can find it. They peer around the room, until they notice tiny holes
+    in one of the walls adjacent to the pedestal. It looks like something might shoot
+    out of them. {0} crouches down behind the opposite side of the pedestal, obscuring
+    as much of their body as they can, and takes the jewel. Sure enough, darts whizz
+    across the room, skimming past {0}, but they emerge from behind the pedestal
+    unscathed. The jewel slides into the slot in the door, which creaks open."
+  secondary2PassText: Even if there is a trap, {0} is sure they can be out of the
+    way in time. They take a running start, grabbing the jewel as they rush past
+    the pedestal. Darts fly out of tiny holes in one of the walls, but {0} drops
+    into a slide and skids out of the way just in time. The jewel slides into the
+    slot in the door, which creaks open.
+  luckyPassText: '{0} decides their best bet is to snatch the jewel, and then get
+    through the door as fast as they can. As they grab the jewel, darts immediately
+    fly out of one of the walls. {0} freezes in shock, but miraculously, all of the
+    darts missed, embedding themselves in the wall behind {0} instead. {0} smiles
+    at their fortitude, and the stolen jewel slides neatly into the slot in the door,
+    which creaks open.'
+  failText: '{0} decides their best bet is to snatch the jewel, and then get through
+    the door as fast as they can. As they grab the jewel, darts immediately fly out
+    of one of the walls. {0} tries to dive out of the way, but is peppered by a couple
+    of the darts. They quickly pull them out, dripping with an acrid green liquid,
+    and totter to the door, feeling markedly weaker than before. The jewel slides
+    neatly into the slot, and the door creaks open.'
+  characterCriticalFail: "{0} decides their best bet is to snatch the jewel, and
+    then get through the door as fast as they can. As they grab the jewel, darts
+    immediately fly out of one of the walls. {0} tries to dive out of the way, but
+    is peppered by several darts. They begin pulling them out, noticing the acrid
+    green liquid they drip with, but feel weaker by the second. Before they can pull
+    out more than a couple, they collapse against the wall, eyes glazing over, stone
+    dead. It\u2019s over for {0}, but the jewel they retrieved slides into the slot
+    in the door, which creaks open."
+  partyCriticalFail: '{0} decides their best bet is to snatch the jewel, and then
+    get through the door as fast as they can. As they grab the jewel, darts immediately
+    fly out of one of the walls. {0} tries to dive out of the way, but is peppered
+    by several darts. They begin pulling them out, noticing the acrid green liquid
+    they drip with, but feel weaker by the second. Before they can pull out more
+    than a couple, they collapse against the wall. Their eyes glaze over, and their
+    vision fades to darkness.'
+  traitToPass: 6
+  secondaryTraits: 0900000002000000
