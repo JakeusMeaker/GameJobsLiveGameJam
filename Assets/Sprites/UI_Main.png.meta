@@ -20,6 +20,9 @@ TextureImporter:
   - first:
       213: 6899680828771911640
     second: UI_Line
+  - first:
+      213: -2031975087804263187
+    second: UI_Main_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
