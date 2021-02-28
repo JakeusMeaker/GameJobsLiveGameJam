@@ -68,6 +68,13 @@ public class ScenarioManager : MonoBehaviour
         currentScenario = scenarioQueue.Peek();
     }
 
+
+    private void OnDisable()
+    {
+        ATraitSelected -= TraitSelected;
+        AStartScenario -= StartCurrentScenario;
+    }
+
     /* MAGNIFICENT LIST OF BUGS FOR JAKE (LOVE YOU JAKE)
      WHen spamming space + left click, can still fuck up the typing robot (Maybe fixed?) - yeah haven't been able to replicate 
     Also seem to end up on first scene again when doing that - seems to be fixed. I had added it within the loop and I think it was causing issues
@@ -83,7 +90,8 @@ public class ScenarioManager : MonoBehaviour
 
         if (_DebugBool)
         {
-            scenarioQueue.Enqueue(restRoom);
+            scenarioQueue.Enqueue(lastScenario);
+            return;
         }
         else
         {
@@ -99,13 +107,16 @@ public class ScenarioManager : MonoBehaviour
                 ScenarioSO scenario = scenarioList[UnityEngine.Random.Range(0, scenarioList.Count)];
                 if (scenarioQueue != null)
                 {
-                    if (!scenarioQueue.Contains(scenario))
-                    {
-                        if (scenarioQueue.Count == (amountOfScenarios * 0.5f) + 1)
-                            scenarioQueue.Enqueue(restRoom);
-                        else
-                            scenarioQueue.Enqueue(scenario);
-                    }
+                    scenarioQueue.Enqueue(scenario);
+
+                    // This was supposed to create a rest room for the mid game but caused too many issues
+                    //if (!scenarioQueue.Contains(scenario))
+                    //{
+                    //    if (scenarioQueue.Count == (amountOfScenarios * 0.5f) + 1)
+                    //        scenarioQueue.Enqueue(restRoom);
+                    //    else
+                    //        scenarioQueue.Enqueue(scenario);
+                    //}
                 }
                 else
                 {
@@ -119,6 +130,7 @@ public class ScenarioManager : MonoBehaviour
 
     public void NextScenario()
     {
+
         StopAllCoroutines();
         canUseTrait = false;
         scenarioTextBox.text = "";
@@ -141,27 +153,28 @@ public class ScenarioManager : MonoBehaviour
         if (scenarioQueue.Count > 0)
         {
             currentScenario = scenarioQueue.Peek();
-            if (currentScenario.isRestRoom)
-            {
-                AudioManager.instance.Play(E_SFX.Heal);
+            //if (currentScenario.isRestRoom)
+            //{
+            //    AudioManager.instance.Play(E_SFX.Heal);
 
-                for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
-                {
-                    if (characterManager.selectedCharacters[i].health < 3)
-                        characterManager.AdjustHealth(characterManager.selectedCharacters[i], healthGainInRestRoomAmount);
-                    if (characterManager.selectedCharacters[i].stamina < 3)
-                        characterManager.AdjustStamina(characterManager.selectedCharacters[i], staminaGainInRestRoomAmount);
-                }
+            //    for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
+            //    {
+            //        if (characterManager.selectedCharacters[i].health < 3)
+            //            characterManager.AdjustHealth(characterManager.selectedCharacters[i], healthGainInRestRoomAmount);
+            //        if (characterManager.selectedCharacters[i].stamina < 3)
+            //            characterManager.AdjustStamina(characterManager.selectedCharacters[i], staminaGainInRestRoomAmount);
+            //    }
 
-                restRoomContinueButton.SetActive(true);
-            }
-            else
-            {
-                SetContinueButton(false);
-            }
+            //    restRoomContinueButton.SetActive(true);
+            //}
+            //else
+            //{
+            //    SetContinueButton(false);
+            //}
 
             if (currentScenario == lastScenario)
             {
+                SetContinueButton(false);
                 StartCurrentScenario();
                 endGameButton.SetActive(true);
                 return;
@@ -188,6 +201,8 @@ public class ScenarioManager : MonoBehaviour
         {
             SetContinueButton(true);
         }
+        else
+            SetContinueButton(false);
     }
 
     private void Update()
@@ -228,7 +243,7 @@ public class ScenarioManager : MonoBehaviour
             if (currentScenario.isRestRoom)
                 StartCoroutine(TextTyper(currentScenario.scenarioText, true));
             else
-                StartCoroutine(TextTyper(currentScenario.scenarioText, false));
+            StartCoroutine(TextTyper(currentScenario.scenarioText, false));
         }
     }
 
@@ -259,10 +274,10 @@ public class ScenarioManager : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        if (isContinue)
-        {
-            SetContinueButton(true);
-        }
+        //if (isContinue)
+        //{
+        //    SetContinueButton(true);
+        //}
         isTyping = false;
     }
 
