@@ -108,6 +108,7 @@ public class ScenarioManager : MonoBehaviour
 
     public void NextScenario()
     {
+
         StartCoroutine(IE_LoadNextScene());
     }
 
@@ -144,7 +145,7 @@ public class ScenarioManager : MonoBehaviour
                 SetContinueButton(false);
             }
 
-            if(currentScenario == lastScenario)
+            if (currentScenario == lastScenario)
             {
                 //endGameButton.SetActive(true);
                 return;
@@ -193,6 +194,11 @@ public class ScenarioManager : MonoBehaviour
                 SkipText();
                 timer = 0;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            finalSceneScript.DoFinalScene(characterManager.selectedCharacters.ToArray(), true);
         }
     }
 
@@ -305,9 +311,9 @@ public class ScenarioManager : MonoBehaviour
                     AudioManager.instance.Play(E_SFX.Success);
 
                     if (character.health == 0)
-                    StartCoroutine(TextTyper(string.Format(currentScenario.passTraitText + "\nUnfortuantely, {0} is exhausted from the effort and collapses. They won't be able to continue.", character.characterName), true));
+                        StartCoroutine(TextTyper(string.Format(currentScenario.passTraitText + "\nUnfortuantely, {0} is exhausted from the effort and collapses. They won't be able to continue.", character.characterName), true));
                     else
-                    StartCoroutine(TextTyper(string.Format(currentScenario.passTraitText, character.characterName), true));
+                        StartCoroutine(TextTyper(string.Format(currentScenario.passTraitText, character.characterName), true));
 
                     break;
 

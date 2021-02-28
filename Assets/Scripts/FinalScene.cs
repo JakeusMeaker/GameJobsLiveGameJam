@@ -42,6 +42,7 @@ public class FinalScene : MonoBehaviour
             thingsToDisable[i].SetActive(false);
         }
         FinalSceneCode(characters, gameWin);
+        finalScene.SetActive(true);
         BlackoutAnimator.instance.FadeFromBlack();
     }
 
@@ -56,19 +57,21 @@ public class FinalScene : MonoBehaviour
                     _winsprite++;
             }
             backgroundImage.sprite = gameWinSprite[_winsprite - 1];
+            epilogueText.text = "You Escaped....\n\n";
         }
         else
+        {
             backgroundImage.sprite = gameOverSprite;
+            epilogueText.text = "You didn't make it....\n\n";
+        }
 
 
         for (int i = 0; i < characters.Length; i++)
         {
             epilogueText.text += "\n" + characters[i].characterName + EpilogueText(characters[i].isDead, Random.Range(0, 11)) + "\n";
-            if (characters[i].isDead == false)
-            {
-                playerSprites[i].SetActive(true);
-            }
         }
+
+        epilogueText.text += "\n\nWill you try your luck again?";
     }
 
     public void ResetGame()
@@ -120,10 +123,11 @@ public class FinalScene : MonoBehaviour
                 case 11:
                     _text += "'s body was never discovered. It was a closed casket ceremony.";
                     break;
-  
+
                 default:
                     break;
             }
+
         }
         else
         {
