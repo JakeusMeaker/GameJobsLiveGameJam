@@ -446,7 +446,7 @@ public class ScenarioManager : MonoBehaviour
         }
     }
 
-    void SetContinueButton(bool _state)
+    public void SetContinueButton(bool _state)
     {
         restRoomContinueButton.SetActive(_state);
     }
