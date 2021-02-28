@@ -110,12 +110,12 @@ public class ScenarioManager : MonoBehaviour
                     scenarioQueue.Enqueue(scenario);
 
                     // This was supposed to create a rest room for the mid game but caused too many issues
-                    //if (!scenarioQueue.Contains(scenario))
+                    if (!scenarioQueue.Contains(scenario))
+                            scenarioQueue.Enqueue(scenario);
                     //{
                     //    if (scenarioQueue.Count == (amountOfScenarios * 0.5f) + 1)
                     //        scenarioQueue.Enqueue(restRoom);
                     //    else
-                    //        scenarioQueue.Enqueue(scenario);
                     //}
                 }
                 else
@@ -169,8 +169,12 @@ public class ScenarioManager : MonoBehaviour
             //}
             //else
             //{
-            //    SetContinueButton(false);
             //}
+            if (currentScenario.isRestRoom == true)
+                SetContinueButton(true);
+            else
+                SetContinueButton(false);
+
 
             if (currentScenario == lastScenario)
             {
@@ -203,6 +207,11 @@ public class ScenarioManager : MonoBehaviour
         }
         else
             SetContinueButton(false);
+
+        if (currentScenario.isRestRoom == true)
+        {
+            SetContinueButton(true);
+        }
     }
 
     private void Update()
@@ -240,9 +249,6 @@ public class ScenarioManager : MonoBehaviour
         StopCoroutine("TextTyper");
         if (!isTyping)
         {
-            if (currentScenario.isRestRoom)
-                StartCoroutine(TextTyper(currentScenario.scenarioText, true));
-            else
             StartCoroutine(TextTyper(currentScenario.scenarioText, false));
         }
     }
@@ -274,10 +280,10 @@ public class ScenarioManager : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        //if (isContinue)
-        //{
-        //    SetContinueButton(true);
-        //}
+        if (isContinue)
+        {
+            SetContinueButton(true);
+        }
         isTyping = false;
     }
 
@@ -289,7 +295,14 @@ public class ScenarioManager : MonoBehaviour
             canUseTrait = false;
             scenarioTextBox.text = "";
 
-            canUseTrait = false;
+            for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
+            {
+                if (character != characterManager.selectedCharacters[i])
+                {
+                    RegenerateStamina(characterManager.selectedCharacters[i]);
+                }
+            }
+
             if (trait == scenarioQueue.Peek().traitToPass)
             {
                 passType = E_PassType.TraitPass;
@@ -421,6 +434,15 @@ public class ScenarioManager : MonoBehaviour
                     break;
             }
 
+        }
+    }
+
+    void RegenerateStamina(SO_Character _char)
+    {
+        int _chance = UnityEngine.Random.Range(0, 100);
+        if (_chance > 40)
+        {
+            characterManager.AdjustStamina(_char, +1);
         }
     }
 

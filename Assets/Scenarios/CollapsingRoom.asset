@@ -18,10 +18,10 @@ MonoBehaviour:
   scenarioText: The beams in this room creak under the weight of what appears to
     be rocks above them. No sooner is the door to the room opened than it all starts
     to collapse, beginning to fill the room and block the way through!
-  passTraitText: "Perfect Pass: {0} surges forward and pushes the fallen rocks aside
-    with remarkable ease. A particularly large one blocks the exit, but it is no
-    match for {0}\u2019s herculean strength, and they shove it out of the way, leaving
-    the exit door open before too many rocks have fallen at all."
+  passTraitText: "{0} surges forward and pushes the fallen rocks aside with remarkable
+    ease. A particularly large one blocks the exit, but it is no match for {0}\u2019s
+    herculean strength, and they shove it out of the way, leaving the exit door open
+    before too many rocks have fallen at all."
   secondary1PassText: '{0} is a colossus. The falling rocks seem no more bother to
     them than rain, allowing for a relatively easy path through. A particularly large
     rock blocks the exit, which they heave out of the way long enough to allow a
