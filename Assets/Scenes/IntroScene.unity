@@ -349,6 +349,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6210831f8079c0946b814e96b4df8faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  voiceOvers:
+  - {fileID: 8300000, guid: d1f0b81e912326247939eabff33edc64, type: 3}
+  - {fileID: 8300000, guid: cd8876bdc00c69544b80357a1a496d07, type: 3}
 --- !u!82 &442959690
 AudioSource:
   m_ObjectHideFlags: 0
@@ -361,7 +364,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -7093503493374189257, guid: e129920dbba01914b91be711ed0c8f69,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: d1f0b81e912326247939eabff33edc64, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
