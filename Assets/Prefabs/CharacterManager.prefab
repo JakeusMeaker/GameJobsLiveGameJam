@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 796592877556254576}
   - component: {fileID: 796592877556254583}
+  - component: {fileID: 235700435}
   m_Layer: 0
   m_Name: CharacterManager
   m_TagString: Untagged
@@ -43,6 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b573ddc1fa6b4b42a43e7594c4f358b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullHealthSprite: {fileID: 8950257515340055079, guid: a079f739631f1d84cad5f58535002897,
+    type: 3}
+  emptyHealthSprite: {fileID: -5329819930130095651, guid: a079f739631f1d84cad5f58535002897,
+    type: 3}
+  fullStaminaSprite: {fileID: 1164861301623372646, guid: a079f739631f1d84cad5f58535002897,
+    type: 3}
+  emptyStaminaSprite: {fileID: -512571614185419088, guid: a079f739631f1d84cad5f58535002897,
+    type: 3}
+  characterSelectCanvas: {fileID: 0}
+  mainCharacterCanvas: {fileID: 0}
   traitButtons:
   - {fileID: 0}
   - {fileID: 0}
@@ -54,6 +65,57 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  SideFacingCharacterSprites:
+  - {fileID: 4934828723263960446, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: 1631994235443532394, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: 1352751847722384685, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: -856871431606455026, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: 1523383512897718839, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: 2228543680592427189, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: -5440497190931491064, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: 8237647040047830620, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: 2574017883742009983, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: -4760508698015554466, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: -6117971160353890260, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: -2226763061948210955, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  FrontFacingCharacterSprites:
+  - {fileID: 1558431551212943797, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: 230874361969781844, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: -1648128824930225084, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: -3466156186932770717, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: -4711245285089321315, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  - {fileID: -1408738690549885437, guid: cd2dcf981b3ab2740a935cb3774972c6, type: 3}
+  character1Sprite: {fileID: 0}
+  character2Sprite: {fileID: 0}
+  character3Sprite: {fileID: 0}
+  characterUI:
+  - thisCharacter: {fileID: 0}
+    health:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    stamina:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - thisCharacter: {fileID: 0}
+    health:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    stamina:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - thisCharacter: {fileID: 0}
+    health:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    stamina:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   characterList:
   - {fileID: 11400000, guid: eaa0669da9da4c14d9cb70d88c8ff919, type: 2}
   - {fileID: 11400000, guid: 9911ec6919d11de44b77e9c8c8198500, type: 2}
@@ -66,3 +128,45 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e7845b8155c009844b5ca4b12f69a254, type: 2}
   selectedCharacters: []
   selectedTraits: 
+--- !u!114 &235700435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796592877556254582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377eea2b4cc9dad4881c4a6075994e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundSprite: {fileID: 0}
+  foregroundSprite: {fileID: 0}
+  amountOfScenarios: 5
+  healthGainInRestRoomAmount: 1
+  staminaGainInRestRoomAmount: 1
+  scenarioList:
+  - {fileID: 11400000, guid: 37e1ee6dfb3ffec489bd1848f7435c31, type: 2}
+  - {fileID: 11400000, guid: c8a7ea6f6fcef134a813ef249aaf14f7, type: 2}
+  - {fileID: 11400000, guid: 21b245c00de3a814fb11abea550dd20e, type: 2}
+  - {fileID: 11400000, guid: 6d418b531d2c37240a6d6c0e544f8938, type: 2}
+  - {fileID: 11400000, guid: 8a0a886fd171ddd47ab480323358634d, type: 2}
+  - {fileID: 11400000, guid: 4112c234b793f3b4a8da73b0b7153ce9, type: 2}
+  - {fileID: 11400000, guid: e012e6b3108fa504f947c1b29bfbd173, type: 2}
+  - {fileID: 11400000, guid: 83ce65843ece45b4aafc8e1b4b22a7c2, type: 2}
+  - {fileID: 11400000, guid: ed8fa10e7457c924d8587744d5f3b19c, type: 2}
+  - {fileID: 11400000, guid: 1519657a3035e814ca6e2ef22803939c, type: 2}
+  - {fileID: 11400000, guid: 8fc7cb08223e6e242a985f262ab05701, type: 2}
+  - {fileID: 11400000, guid: d38485a7497187841a04e8f8e71a0ff3, type: 2}
+  - {fileID: 11400000, guid: 6cc76013692a81744a4f717c4df2be48, type: 2}
+  - {fileID: 11400000, guid: 990c1523c75fd5843aad899aa74c2d16, type: 2}
+  - {fileID: 11400000, guid: fab891db6d1dc8c4aa5f7027ce604d7e, type: 2}
+  - {fileID: 11400000, guid: a67c68f9fcd66c14eb8593be15f733f6, type: 2}
+  - {fileID: 11400000, guid: 610c1150fdccdf1498cd9b9a17597c11, type: 2}
+  - {fileID: 11400000, guid: e7660743afcf0104797fc3ee2292f2da, type: 2}
+  firstScenario: {fileID: 11400000, guid: 2510fe2ed2e6c4a46b22d97556bbfe65, type: 2}
+  lastScenario: {fileID: 11400000, guid: c8a7ea6f6fcef134a813ef249aaf14f7, type: 2}
+  finalSceneScript: {fileID: 0}
+  scenarioTextBox: {fileID: 0}
+  restRoomContinueButton: {fileID: 0}
+  secondaryTraitSuccessPercent: 0.25
