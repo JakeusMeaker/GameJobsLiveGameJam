@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: SwordInStone
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 511c362cb21744449b45e19b7b1abb44, type: 3}
+  foregroundImage: {fileID: 21300000, guid: 1008b2b1b12e9064ba4ece5eb06dd022, type: 3}
+  isRestRoom: 0
+  scenarioText: "In the center of the room there is a sword protruding from a rock.
+    It glimmers with a pale red light. An inscription on the stone reads, \u2018Only
+    the Worthy.\u2019 There is no door in sight."
+  passTraitText: "'Only the Worthy\u2019. {0} isn\u2019t sure if that means them,
+    but never one to be discouraged they step forward, placing their hand on the
+    hilt and pulling. A voice emanates through the room. \u201CWorthy!\u201D The
+    sword slides out of the rock with ease, glowing until it is blindingly bright.
+    {0} averts their eyes, when all of a sudden, the sword disappears. But a door
+    seems to have materialised in the back wall."
+  secondary1PassText: "\u2018Only the Worthy\u2019. {0} is sure that can\u2019t mean
+    them, but someone has to try this thing. They step forward, placing their hand
+    on the hilt and pulling. A voice emanates through the room. \u201CHmm. Worthy!\u201D
+    The sword is still for a moment, then slides out of the rock, glowing until it
+    is blindingly bright. {0} averts their eyes, when all of a sudden, the sword
+    disappears. But a door seems to have materialised in the back wall."
+  secondary2PassText: "\u2018Only the Worthy\u2019. For a job like this, {0} knows
+    they\u2019ve gotta be the most worthy. Who else could pull a sword out of a rock?
+    They brace themselves on the rock, both hands on the hilt\u2026 And pull.  A
+    voice emanates through the room. \u201CUnworthy!\u201D The sword stays firmly
+    in place as {0} tugs and heaves, face beet red. Then there is a crack, and a
+    shudder, and the sword shatters out of the rock, scattering fragments of it across
+    the room. The voice booms out again. \u201CUgh. Fine. Worthy!\u201D The sword
+    glows an angry red, growing in intensity until it is blindingly bright. {0} averts
+    their eyes, when all of a sudden, the sword disappears. But a door seems to have
+    materialised in the back wall."
+  luckyPassText: "\u2018Only the Worthy\u2019. {0} figures it could mean them, placing
+    their hand on the hilt and pulling. A voice emanates through the room. \u201CUnworthy!\u201D
+    But the sword slides out of the rock with ease anyway, glowing until it is blindingly
+    bright. The voice booms out again. \u201CDamn it. It\u2019s supposed to be stuck.\u201D
+    {0} averts their eyes, when all of a sudden, the sword disappears. But a door
+    seems to have materialised in the back wall."
+  failText: "\u2018Only the Worthy\u2019. {0} figures it could mean them, placing
+    their hand on the hilt and pulling. A voice emanates through the room. \u201CUnworthy!\u201D
+    The sword glows red hot, burning {0}\u2019s hand, and catching their sleeve on
+    fire, forcing them to quickly pat away the flames. The voice booms out again.
+    \u201CLeave this place!\u201D A door seems to have materialised in the back wall,
+    and {0} staggers towards it, cradling their scorched hand.\r\n"
+  characterCriticalFail: " \u2018Only the Worthy\u2019. {0} figures it could mean
+    them, placing their hand on the hilt and pulling. A voice emanates through the
+    room. \u201CUnworthy!\u201D The sword glows red hot, burning {0}\u2019s hand,
+    which seems to be stuck fast! Their sleeve ignites, spreading across their entire
+    body until they are entirely engulfed in pale red flames. In but a few moments,
+    all that remains is a charred black skeleton. The voice booms out again. \u201CLeave
+    this place!\u201D A door seems to have materialised in the back wall. Perhaps
+    the sword isn\u2019t worth the trouble.\r\n"
+  partyCriticalFail: " \u2018Only the worthy\u2019. {0} figures it could mean them,
+    placing their hand on the hilt and pulling. A voice emanates through the room.
+    \u201CUnworthy!\u201D The sword glows red hot, burning {0}\u2019s hand, which
+    seems to be stuck fast! Their sleeve ignites, spreading across their entire body
+    until they are entirely engulfed in pale red flames. In but a few moments, all
+    that remains is a charred black skeleton, a morbid reminder to those that come
+    this way of the dangers of hubris.\r\n"
+  traitToPass: 3
+  secondaryTraits: 0800000000000000

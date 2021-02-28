@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: PitchDarkness
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 556bfcc08888c35478817418a089173e, type: 3}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 0
+  scenarioText: 'The room is pitch black. There is no visible door, or walls, or
+    even floor. There could be absolutely anything in here. '
+  passTraitText: '{0} peers into the room. Where ordinary eyes see only impenetrable
+    darkness {0} can seem to be able to make out imperceptible details. They inch
+    forward, following moving carefully through until they find the other side. They
+    find a light switch on the wall by the door, but turning it on reveals a room
+    only a few meters across. How strange...'
+  secondary1PassText: "Though {0} can see nothing in the room, their rational mind
+    formulates a plan. They pry a tiny crack in the door to the last room as a fixed
+    reference point, and then inch forward, using the fixed reference point behind
+    them to ensure they\u2019re going in a straight line. For some reason they have
+    a bad feeling about following the walls around, but it pays off when they reach
+    the other side. They find a light switch on the wall by the door, but turning
+    it on reveals a room only a few meters across. How strange..."
+  secondary2PassText: "Accustomed to working in the dark for reasons they tend not
+    to divulge, {0} takes a small stick from their pack and begins sweeping the ground
+    in front of them as they move forward. They almost get turned around at times,
+    but seem to have an uncanny knack for moving around in the dark, so it\u2019s
+    not long before they reach the other side. They find a light switch on the wall
+    by the door, but turning it on reveals a room only a few meters across. How strange..."
+  luckyPassText: "One tentative step at a time, {0} begins to walk into the darkness,
+    arms outstretched. At first they feel as if they are making steady progress,
+    but after what feels like an age of stumbling around, they find themselves utterly
+    lost. As walking in one direction didn\u2019t seem to work, the only recourse
+    now is to jog until they find a wall. The room must be huge as it takes a good
+    minute of jogging before they reach a wall. Groping around on it, {0} finds a
+    lightswitch, but when they turn it on it reveals a room only a few meters across.
+    How strange\u2026 On the bright side, the exit door is right here."
+  failText: "One tentative step at a time, {0} begins to walk into the darkness,
+    arms outstretched. At first they feel as if they are making steady progress,
+    but after what feels like an age of stumbling around, they find themselves utterly
+    lost. Why can\u2019t they find a wall? {0} walks and walks. Hours pass. Days.
+    Then suddenly\u2026 a wall. A lightswitch. They turn it on to reveal a room only
+    a few meters across. But it\u2019s been so long. Hasn\u2019t it? The exit door
+    is right there, but as {0} pulls themself through, exhausted, they can\u2019t
+    help but feel like they lost years of their life, trapped in that room."
+  characterCriticalFail: "One tentative step at a time, {0} begins to walk into the
+    darkness, arms outstretched. At first they feel as if they are making steady
+    progress, but after what feels like an age of stumbling around, they find themselves
+    utterly lost. Why can\u2019t they find a wall? {0} walks and walks until the
+    darkness swallows them. Content with the offering, the lights in the room flicker
+    on to reveal that it is only a few meters across, with the exit door right there.
+    But {0} is nowhere to be seen."
+  partyCriticalFail: "One tentative step at a time, {0} begins to walk into the darkness,
+    arms outstretched. At first they feel as if they are making steady progress,
+    but after what feels like an age of stumbling around, they find themselves utterly
+    lost. Why can\u2019t they find a wall? {0} walks and walks. Hours pass. Days.
+    Eventually the darkness swallows them entirely. Perhaps they are walking still."
+  traitToPass: 9
+  secondaryTraits: 0400000006000000

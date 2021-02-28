@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: Witch
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 4bcd8c432846cdc4a8087267f9465a21, type: 3}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 0
+  scenarioText: " A crooked figure stands bent over a cauldron. She moves in sudden,
+    crooked motions and beckons, speaking with a voice like the caw of a crow. \u201CIt\u2019s
+    been a while since I had any visitors. Come and talk with me, you can help prepare
+    a potion and then I\u2019ll let you pass.\u2019"
+  passTraitText: '{0} seems fascinated by the potion brewing in the cauldron, and
+    eagerly listens to the witch explain her instructions. With a natural talent
+    for learning, they help the witch measure and prepare ingredients and show great
+    aptitude for the craft. The witch seems very pleased for the assistance and company,
+    happily sending {0} on their way once the potion is prepared.'
+  secondary1PassText: '{0} eyes the cauldron curiously, and carefully listens to
+    the witch explain her instructions. Though the craft does not come easily to
+    them, they remember the instructions she gave them to the letter, and recognise
+    ingredients with ease. The witch seems quite pleased for the assistance and company,
+    cackling and sending {0} on their way once the potion is prepared.'
+  secondary2PassText: "{0} eyes the cauldron with trepidation, doing their best to
+    listen to the witch explain her instructions. The process is baffling to {0},
+    and they make mistake after mistake, but all the while, they chat animatedly
+    away with the witch, who seems quite charmed by their company. \u201CThis potion
+    is awful.\u201D she says, when they are done. \u201CBut I can always make another.
+    Thank you for making this old woman laugh.\u201D"
+  luckyPassText: "{0} eyes the cauldron with trepidation, doing their best to listen
+    to the witch explain her instructions. The process is baffling to {0}, and they
+    improvise, throwing random ingredients into the mix. \u201CBy all rights his
+    potion should be awful.\u201D she says, when they are done. \u201CBut somehow,
+    it\u2019s come out just right. Perhaps you are better at this than I am.\u201D
+    She eyes {0} suspiciously, then lets them leave."
+  failText: "{0} eyes the cauldron with trepidation, doing their best to listen to
+    the witch explain her instructions. The process is baffling to {0}, and they
+    improvise, throwing random ingredients into the mix. \u201CYou\u2019ve ruined
+    this potion\u201D she says, when they are done. \u201CAnd you will drink your
+    mess.\u201D She flicks her finger, making a jet of potion erupt from the cauldron,
+    and fly straight up {0}\u2019s nose and mouth. They splutter, and almost immediately
+    their skin turns a sickly shade of green. \u201CBe off with you!\u201D she says,
+    and {0} staggers away, feeling as ill as they look."
+  characterCriticalFail: "{0} eyes the cauldron with trepidation, doing their best
+    to listen to the witch explain her instructions. The process is baffling to {0},
+    and they improvise, throwing random ingredients into the mix. \u201CYou\u2019ve
+    ruined this potion\u201D she says, when they are done. \u201CAnd you will drink
+    your mess.\u201D She flicks her finger, making a jet of potion erupt from the
+    cauldron, and fly straight up {0}\u2019s nose and mouth. They splutter, and in
+    a poof of green smoke, there is only a frog where they were standing. The witch
+    picks up the frog, and shoves it inside a pocket in her robes. \u201CNever hurts
+    to have more ingredients I suppose.\u201D She says, as she gestures dismissively
+    towards the exit."
+  partyCriticalFail: "{0} eyes the cauldron with trepidation, doing their best to
+    listen to the witch explain her instructions. The process is baffling to {0},
+    and they improvise, throwing random ingredients into the mix. \u201CYou\u2019ve
+    ruined this potion\u201D she says, when they are done. \u201CAnd you will drink
+    your mess.\u201D She flicks her finger, making a jet of potion erupt from the
+    cauldron, and fly straight up {0}\u2019s nose and mouth. They splutter, and in
+    a poof of green smoke, there is only a frog where they were standing. The witch
+    picks up the frog, and shoves it inside a pocket in her robes. \u201CNever hurts
+    to have more ingredients I suppose.\u201D"
+  traitToPass: 4
+  secondaryTraits: 0900000005000000

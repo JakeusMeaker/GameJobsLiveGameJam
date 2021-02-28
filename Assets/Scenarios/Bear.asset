@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: Bear
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: 064a229db75ae614eb2ebbe38c72958e, type: 3}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 0
+  scenarioText: A gigantic bear stands in this room, physically blocking the only
+    way through the room. An old wooden hand axe lies on the ground right in front
+    of the door. Though it clutches a small stuffed lion, the bear stares down at
+    the axe with cold, empty eyes. A fight is inevitable.
+  passTraitText: "{0} picks up the axe with a deep breath, and charges the bear.
+    The bear emits an ear-splitting roar, and lumbers towards them on two legs, swinging
+    its huge paw. But the bear is slow and {0} acts with lethal intent, burying the
+    axe to the haft in the bear\u2019s skull. The bear comes toppling down, its momentum
+    carrying it forward as it tumbles to the ground."
+  secondary1PassText: "{0} picks up the axe with a deep breath, and edges towards
+    the bear. The bear emits an ear-splitting roar, and lumbers towards them on two
+    legs, swinging its huge paw. But the bear is slow. {0} braces, trying to put
+    the blade of the axe in the way of the bear\u2019s paws instead of using it as
+    an offensive weapon. Every time the bear attacks, it cuts its own paws on the
+    axe, until it rears back in agony, and {0} presses forward to deliver the coup
+    de gr\xE2ce. The bear tumbles to the ground, dead at last."
+  secondary2PassText: "{0} picks up the axe with a determined breath, and edges towards
+    the bear. The bear emits an ear-splitting roar, and {0} roars back like a lion.
+    The bear turns it\u2019s head in momentary confusion, and it\u2019s all the opportunity
+    {0} needs. They strike forward with a fury born of desperation, striking again
+    and again at the bear\u2019s face. The bear tries to back away, protecting its
+    face with its huge paws, but {0} is unrelenting. With one final strike, they
+    plunge the axe into the bear\u2019s chest and it tumbles to the ground, dead
+    at last.\r\n"
+  luckyPassText: "{0} picks up the axe with a deep breath, and edges towards the
+    bear. The bear emits an ear-splitting roar, and lumbers towards them on two legs.
+    {0} swings the axe at the bear, but it catches the stuffed lion instead, tearing
+    it from the bear\u2019s grasp. The bear howls with dismay, eyes fixed on the
+    lion embedded on the axe, In response {0} throws the axe, into the corner of
+    the room, and the bear immediately rushes to its aid. {0} spares no time in hopping
+    over the bars and escaping."
+  failText: "{0} picks up the axe with a deep breath, and edges towards the bear.
+    The bear emits an ear-splitting roar, and lumbers towards them on two legs. {0}
+    swings the axe at the bear, sticking it in the bear\u2019s chest with little
+    noticeable effect. In response, the bear bats {0} with its paw, sending them
+    hurtling into a wall. The bear then retreats to the corner of the room, where
+    it tries to pluck out the axe with its clumsy paws. Injured, {0} still wastes
+    no time in pulling themself to their feet, and escaping through the bars"
+  characterCriticalFail: "{0} picks up the axe with a deep breath, and edges towards
+    the bear. The bear emits an ear-splitting roar, and lumbers towards them on two
+    legs. {0} swings the axe at the bear, sticking it in the bear\u2019s chest with
+    little noticeable effect. In response, the bear bats {0} with its paw, sending
+    them hurtling into a wall. They have no time to get to their feet before the
+    bear is on them again, tearing chunks out of them like a pi\xF1ata, but leaving
+    the gap in the bars unguarded"
+  partyCriticalFail: "{0} picks up the axe with a deep breath, and edges towards
+    the bear. The bear emits an ear-splitting roar, and lumbers towards them on two
+    legs. {0} swings the axe at the bear, sticking it in the bear\u2019s chest with
+    little noticeable effect. In response, the bear bats {0} with its paw, sending
+    them hurtling into a wall. They have no time to get to their feet before the
+    bear is on them again, tearing chunks out of them like a pi\xF1ata."
+  traitToPass: 0
+  secondaryTraits: 0100000003000000

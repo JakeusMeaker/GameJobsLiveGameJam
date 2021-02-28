@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: TheWallsAreClosingIn
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: c4c39e5a8d501a243b61ff845477789e, type: 3}
+  foregroundImage: {fileID: 0}
+  isRestRoom: 0
+  scenarioText: Upon entering the room, the spiked walls rumble into life, slowly
+    inching towards each other. The exit door is a long way off!
+  passTraitText: "{0} doesn\u2019t waste a single second, immediately breaking into
+    a sprint. They make it to the end of the room with time to spare, hitting the
+    button on the far wall to reset the spikes."
+  secondary1PassText: Seeing the immediate danger, {0} runs for the far wall. Their
+    excellent physical fitness carries them almost all the way to the end in time,
+    where they find a spot without spikes  to heave against the walls for just long
+    enough to kick the button on the far wall and reset the spikes.
+  secondary2PassText: Seeing the immediate danger, {0} runs for the far wall. They
+    get almost all the way to the end in time, where they find a spot without spikes
+    to brace against the walls for just long enough to kick the button on the far
+    wall and reset the spikes. A couple of minor cuts are nothing to {0}.
+  luckyPassText: "Seeing the immediate danger, {0} runs for the far wall. They get
+    most of the way to the end in time, but the walls are closing too fast, and they\u2019re
+    about to run out of space. Suddenly, there is a horrible mechanical clanking
+    sound, and the walls judder to a halt. Perhaps the mechanism broke? {0} hits
+    the button on the far wall to reset the spikes, which fortunately works, allowing
+    access to the exit door."
+  failText: "Seeing the immediate danger {0} runs for the far wall. They get most
+    of the way to the end in time, but the walls are closing too fast, and they\u2019re
+    about to run out of space. They squeeze sideways as the spikes close in on them,
+    and just manage to hit the button on the far wall with the tips of their fingers.
+    The spike walls slide back into their original positions, but {0} has sustained
+    a few nasty cuts."
+  characterCriticalFail: "Seeing the immediate danger {0} runs for the far wall.
+    They get most of the way to the end in time, squeezing sideways, but the walls
+    are closing too fast, and the spikes are slicing into them as they press on.
+    The walls meet and they are cut off from view. Suddenly, the spike walls slide
+    back into their original positions, but {0}\u2019s lacerated body lies beneath
+    the button, arm outstretched in a final selfless act.\r\n"
+  partyCriticalFail: "Seeing the immediate danger {0} runs for the far wall. They
+    barely get halfway before they realise they aren\u2019t going to make it, and
+    turn back. But they\u2019re too far in now, and as the walls close, they seal
+    {0} in, forming a final, bloody tomb around them."
+  traitToPass: 2
+  secondaryTraits: 0000000001000000

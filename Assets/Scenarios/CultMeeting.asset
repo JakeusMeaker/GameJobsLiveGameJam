@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: CultMeeting
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: ba8d6e9b36144344a86684c16a928590, type: 3}
+  foregroundImage: {fileID: 21300000, guid: f520eabd4203f544f84e37a2ed2ac804, type: 3}
+  isRestRoom: 0
+  scenarioText: "Three large figures sit around a ritual circle. They speak in turn.
+    \u201CAre you one of us?\u201D. \u201CYour actions matter, not your words\u201D
+    \u201CShow us the darkness inside of you.\u201D The third figure places a knife
+    before the circle. As they do, a goat trots out of the shadow and sits in the
+    center of the circle, unusually serene."
+  passTraitText: "{0} knows what they must do. Instead of using the ritual knife,
+    they take out their own, looking at the figures while they do. Then they kneel
+    before the goat and slit its throat. The goat slumps with barely a sound, and
+    the circle glows with an eerie light. The third figure speaks again, a slow hiss.
+    \u201CYes... You can do what must be done. Go forth knowing that you have been
+    chosen.\u201D"
+  secondary1PassText: "{0} will take no joy in it, but the figures made it clear.
+    There is one solution. There\u2019s no talking through this one, no fighting
+    or running away. {0} takes the knife and kneels before the goat. With a shaking
+    hand, they draw the knife over the throat of the goat, which slumps with barely
+    a sound. The circle glows with an eerie light, and the third figure speaks again,
+    a slow hiss. \u201CYes\u2026 Pragmatism. A seed of darkness. Go forth.\u201D"
+  secondary2PassText: "{0} has done things they\u2019re not proud of. Not goat killing,
+    but when push comes to shove... {0} takes the knife and kneels before the goat.
+    Somewhat reluctantly, they draw the knife over the throat of the goat, which
+    slumps with barely a sound. The circle glows with an eerie light, and the third
+    figure speaks again, a slow hiss. \u201CYes\u2026 You are on the path. Go forth.\u201D"
+  luckyPassText: "Reluctantly, {0} shakes their head. They can\u2019t just kill a
+    goat with a knife. In unison, the three figures whisper, \u201CYou have failed.\u201D 
+    The third speaks again, this time in a hiss of pure hatred. \u201CAnd yet you
+    will not pay the toll. But know this. It is the hand fortune, and only that which
+    has stilled our hand this day. You may not be so lucky again. Leave now, lest
+    she withdraw her protection.\u201D"
+  failText: "{0} shakes their head. They can\u2019t just kill a goat with a knife. 
+    The third figure speaks again, this time in a hiss that cannot disguise its glee.
+    \u201CAnd so you will pay the toll. A pound of flesh, and a cup of blood.\u201D
+    He takes the knife and flicks it at the chalice and scales in turn, which fill
+    with a pure red liquid and a gooey pinkish lump respectively. {0} cries out in
+    pain and shock as they realise what has just been taken from them. \u201CAnd
+    now you may go forth.\u201D"
+  characterCriticalFail: "Reluctantly, {0} shakes their head. They can\u2019t just
+    kill a goat with a knife. The third figure speaks again, this time in a hiss
+    that cannot disguise its glee. \u201CAnd so you will pay the toll. A pound of
+    flesh, and a cup of blood.\u201D He takes the knife and flicks it at the chalice
+    and scales in turn, which fill with a pure red liquid and a gooey pinkish lump
+    respectively. {0} cries out in pain and shock as they realise what has just been
+    taken from them, staggering forth, and collapsing in front of the circle. The
+    figures speak in unison. \u201CThe price has been paid. Go forth.\u201D"
+  partyCriticalFail: "Reluctantly, {0} shakes their head. They can\u2019t just kill
+    a goat with a knife. The third figure speaks again, this time in a hiss that
+    cannot disguise its glee. \u201CAnd so you will pay the toll. A pound of flesh,
+    and a cup of blood.\u201D He takes the knife and flicks it at the chalice and
+    scales in turn, which fill with a pure red liquid and a gooey pinkish lump respectively.
+    {0} cries out in pain and shock as they realise what has just been taken from
+    them, staggering forth, and collapsing in front of the circle. The figures speak
+    in unison. \u201CThe price has been paid.\u201D\r"
+  traitToPass: 10
+  secondaryTraits: 0400000006000000

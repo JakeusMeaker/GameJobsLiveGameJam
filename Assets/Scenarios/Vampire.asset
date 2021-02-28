@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1495cb4c15df33c43a134f519fd0b300, type: 3}
+  m_Name: Vampire
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 21300000, guid: abaf5e0fd4a596147a852d15641d7d8d, type: 3}
+  foregroundImage: {fileID: 21300000, guid: 1bb4e0eec37269b459944628f42d8802, type: 3}
+  isRestRoom: 0
+  scenarioText: "A flamboyantly dressed man floats in the center of the room. His
+    eyes snap open, and he extends his hand in welcome. He speaks in a smooth, accented
+    voice. \u201CI want to suck your blood\u2026 No really. I\u2019m parched. You
+    must have some to spare?\u201D "
+  passTraitText: "{0} steps up. They\u2019ve lost blood before, and they know they
+    can lose some more and keep going with no trouble. The vampire eagerly sinks
+    his teeth into their exposed neck, and drinks deeply. After a little while, {0}
+    coughs politely, and the vampire pulls away. \u201CApologies. You have such a
+    rich, full bodied taste,\u201D he says, a little embarrassed. \u201CNow please,
+    don\u2019t let me keep you.\u201D"
+  secondary1PassText: "{0} steps up. They\u2019ve lost blood before, and if all it\u2019s
+    going to take is a little blood to get through here, well that\u2019s a small
+    price to pay. The vampire eagerly sinks his teeth into their exposed neck, and
+    drinks deeply. After a few moments, {0} shoves the vampire off, who pulls away.
+    \u201CApologies. You have such a zesty, exciting flavour,\u201D he says, a little
+    embarrassed. \u201CNow please, don\u2019t let me keep you.\u201D"
+  secondary2PassText: "{0} steps up, pulling from their pocket what seems to be a
+    vial of blood. When did they collect that? The vampire sighs as he sees it. \u201CThe
+    bottled stuff is never as good. But it will suffice.\u201D He takes it, and drinks
+    deeply. \u201CApologies, I should be more grateful,\u201D he says, a little embarrassed.
+    \u201CNow please, don\u2019t let me keep you.\u201D"
+  luckyPassText: "{0} steps up. Someone is going to have to, and it might as well
+    be them. The vampire eagerly sinks his teeth into their exposed neck, and drinks
+    deeply, but pulls away after barely a moment, spluttering and coughing, spitting
+    blood all over his immaculate clothes. \u201CApologies. Your flavour must be\u2026
+    An acquired taste,\u201D he says, clearly embarrassed as he dabs at the blood
+    on his shirt with a handkerchief. \u201CNow please, don\u2019t let me keep you.\u201D"
+  failText: "{0} steps up. Someone is going to have to, and it might as well be them.
+    The vampire eagerly sinks his teeth into their exposed neck, and drinks deeply.
+    They begin to feel faint after a few moments, but cannot find the energy to say
+    anything. After a little while the vampire pulls away. \u201CApologies. You have
+    such a wonderfully elegant taste,\u201D he says, a little embarrassed. \u201CNow
+    please, don\u2019t let me keep you.\u201D {0} stumbles away, pale and dizzy. "
+  characterCriticalFail: "{0} steps up. Someone is going to have to, and it might
+    as well be them. The vampire eagerly sinks his teeth into their exposed neck,
+    and drinks deeply. They begin to feel faint after a few moments, but cannot find
+    the energy to say anything. After a little while the vampire pulls away. \u201CApologies.
+    You have such a tangy, exotic taste,\u201D he says, a little embarrassed. But
+    {0} has collapsed in his arms, completely exsanguinated. \u201COh dear, oh dear,\u201D
+    says the vampire. \u201CI really am so terribly sorry. This keeps happening.\u201D
+    He looks mortified. \u201CI will make the funeral arrangements. But please, don\u2019t
+    let me keep you.\u201D The vampire holds the door open, but he is visibly cringing."
+  partyCriticalFail: "{0} steps up. Someone is going to have to, and it might as
+    well be them. The vampire eagerly sinks his teeth into their exposed neck, and
+    drinks deeply. They begin to feel faint after a few moments, but cannot find
+    the energy to say anything. After a little while the vampire pulls away. \u201CApologies.
+    You have such a delicate, exquisite flavour.\u201D he says, a little embarrassed.
+    But {0} has collapsed in his arms, completely exsanguinated. \u201COh dear, oh
+    dear,\u201D says the vampire to no one in particular. \u201CI really am so terribly
+    sorry. This keeps happening.\u201D He looks mortified. \u201CI will make the
+    funeral arrangements. I will send flowers. I will...\u201D The vampire\u2019s
+    words falter as he realises he is alone. \u201COh dear.\u201D"
+  traitToPass: 1
+  secondaryTraits: 030000000a000000
