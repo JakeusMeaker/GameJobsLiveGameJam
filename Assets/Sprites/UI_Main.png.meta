@@ -22,7 +22,7 @@ TextureImporter:
     second: UI_Line
   - first:
       213: -2031975087804263187
-    second: UI_Main_6
+    second: UI_Cursor
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -265,6 +265,27 @@ TextureImporter:
       bones: []
       spriteID: 8d7c58e582790cf50800000000000000
       internalID: 6899680828771911640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Cursor
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 145
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de4dbfa6c69fcc3e0800000000000000
+      internalID: -2031975087804263187
       vertices: []
       indices: 
       edges: []
