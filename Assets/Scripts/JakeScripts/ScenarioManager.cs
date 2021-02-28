@@ -162,6 +162,11 @@ public class ScenarioManager : MonoBehaviour
 
             StartCurrentScenario();
         }
+        else
+        {
+            canUseTrait = false;
+            StartCurrentScenario();
+        }
     }
 
     public void EndGame()
