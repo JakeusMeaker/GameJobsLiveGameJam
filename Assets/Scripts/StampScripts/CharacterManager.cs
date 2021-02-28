@@ -219,7 +219,7 @@ public class CharacterManager : MonoBehaviour
 
         while (time < duration)
         {
-            Debug.Log("Lerping");
+            //Debug.Log("Lerping");
             valueToChange.color = Color.Lerp(startValue, endValue, time / duration);
             time += Time.deltaTime;
             yield return null;
@@ -235,7 +235,7 @@ public class CharacterManager : MonoBehaviour
 
         while (time < duration)
         {
-            Debug.Log("Lerping");
+            //Debug.Log("Lerping");
             valueToChange.color = Color.Lerp(startValue, endValue, time / duration);
             time += Time.deltaTime;
             yield return null;
