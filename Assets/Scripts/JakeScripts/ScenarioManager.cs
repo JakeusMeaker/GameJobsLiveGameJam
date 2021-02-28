@@ -148,12 +148,17 @@ public class ScenarioManager : MonoBehaviour
                 for (int i = 0; i < characterManager.selectedCharacters.Count; i++)
                 {
                     if (characterManager.selectedCharacters[i].health < 3)
-                        characterManager.AdjustHealth(characterManager.selectedCharacters[i], healthGainInRestRoomAmount);
-                    if (characterManager.selectedCharacters[i].stamina < 3)
-                        characterManager.AdjustStamina(characterManager.selectedCharacters[i], staminaGainInRestRoomAmount);
+                    {
+                        characterManager.AdjustHealth(characterManager.selectedCharacters[i], 1);
+                    }
+                    if (characterManager.selectedCharacters[i].stamina < 2)
+                    {
+                        characterManager.AdjustStamina(characterManager.selectedCharacters[i], 1);
+                        characterManager.AdjustStamina(characterManager.selectedCharacters[i], 1);
+                    }
                 }
 
-                restRoomContinueButton.SetActive(true);
+               // restRoomContinueButton.SetActive(true);
             }
             else
             {
@@ -180,6 +185,7 @@ public class ScenarioManager : MonoBehaviour
 
     void SkipText()
     {
+
         StopAllCoroutines();
         isTyping = false;
         scenarioTextBox.text = "";
