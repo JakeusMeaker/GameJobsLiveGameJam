@@ -22,9 +22,10 @@ MonoBehaviour:
     fickle mistress, but often better than a shot in the dark.\nChoosing the right
     skill will cost you stamina.\nChoosing the wrong skill, or failing a secondary
     skill, will cost you health as well as stamina.\nIf you have no stamina, you
-    can use health. Beware, this makes failures twice as dangerous.\n\nPress Space
-    to skip text typing, and click \"Move On\" to move to the next scenario. Good
-    luck!"
+    can use health. Beware, this makes failures twice as dangerous.\nUsing a skill
+    also has a chance for your other characters to regain some stamina as they rest.\n\nPress
+    Space to skip text typing, and click \"Move On\" to move to the next scenario.
+    Good luck!"
   passTraitText: 
   secondary1PassText: 
   secondary2PassText: 
