@@ -18,9 +18,11 @@ public class ScenarioManager : MonoBehaviour
     public int healthGainInRestRoomAmount;
     public int staminaGainInRestRoomAmount;
 
+
     [SerializeField]
     private List<ScenarioSO> scenarioList = new List<ScenarioSO>();
 
+    public ScenarioSO restRoom;
     public ScenarioSO firstScenario;
     public ScenarioSO lastScenario;
 
@@ -28,7 +30,6 @@ public class ScenarioManager : MonoBehaviour
 
     private Queue<ScenarioSO> scenarioQueue = new Queue<ScenarioSO>();
     private ScenarioSO currentScenario;
-    private E_Trait lastTraitUsed;
 
     private bool enableContinueButton = false;
     string currentText;
@@ -90,16 +91,17 @@ public class ScenarioManager : MonoBehaviour
             ScenarioSO scenario = scenarioList[UnityEngine.Random.Range(0, scenarioList.Count)];
             if (scenarioQueue != null)
             {
-                if (scenario.traitToPass != lastTraitUsed)
+                if (!scenarioQueue.Contains(scenario))
                 {
-                    scenarioQueue.Enqueue(scenario);
-                    lastTraitUsed = scenario.traitToPass;
+                    if (scenarioQueue.Count == (amountOfScenarios * 0.5f) + 1 )
+                        scenarioQueue.Enqueue(restRoom);
+                    else
+                        scenarioQueue.Enqueue(scenario);
                 }
             }
             else
             {
                 scenarioQueue.Enqueue(scenario);
-                lastTraitUsed = scenario.traitToPass;
             }
         }
 
@@ -214,12 +216,13 @@ public class ScenarioManager : MonoBehaviour
 
 
         StopAllCoroutines();
-
-        if (currentScenario.isRestRoom)
-            StartCoroutine(TextTyper(currentScenario.scenarioText, true));
-        else
-            StartCoroutine(TextTyper(currentScenario.scenarioText, false));
-
+        if (!isTyping)
+        {
+            if (currentScenario.isRestRoom)
+                StartCoroutine(TextTyper(currentScenario.scenarioText, true));
+            else
+                StartCoroutine(TextTyper(currentScenario.scenarioText, false));
+        }
     }
 
     IEnumerator TextTyper(string textToType, bool isContinue)

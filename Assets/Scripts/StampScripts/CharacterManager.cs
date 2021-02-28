@@ -125,7 +125,7 @@ public class CharacterManager : MonoBehaviour
         }
 
         _char.stamina += adjust;
-        _char.stamina = Mathf.Clamp(_char.stamina, 0, 3);
+        _char.stamina = Mathf.Clamp(_char.stamina, 0, 2);
         for (int i = 0; i < characterUI.Length; i++)
         {
             if (_char == characterUI[i].thisCharacter)

@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
             instance = this;
         else
         {
-            Debug.LogError("Multiple AudioManagers");
+            //Debug.LogError("Multiple AudioManagers");
             Destroy(this.gameObject);
         }
     }
