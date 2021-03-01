@@ -20,6 +20,7 @@ public class ScenarioManager : MonoBehaviour
     public int healthGainInRestRoomAmount;
     public int staminaGainInRestRoomAmount;
 
+    float textSpeed = 0.05f;
 
     [SerializeField]
     private List<ScenarioSO> scenarioList = new List<ScenarioSO>();
@@ -195,14 +196,25 @@ public class ScenarioManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > 2)
+        //if (timer > 2)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Space) && isTyping)
+        //    {
+        //        SkipText();
+        //        timer = 0;
+        //    }
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.Space) && isTyping)
-            {
-                SkipText();
-                timer = 0;
-            }
+            textSpeed = 0.001f;
         }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            textSpeed = 0.05f;
+        }
+
 
         //if (Input.GetKeyDown(KeyCode.P))
         //{
@@ -222,9 +234,9 @@ public class ScenarioManager : MonoBehaviour
         else
             foregroundSprite.sprite = null;
 
-        if (currentScenario.isRestRoom == true)
-            SetContinueButton(true);
-        else
+        //if (currentScenario.isRestRoom == true)
+        //    SetContinueButton(true);
+        //else
             SetContinueButton(false);
 
         StopCoroutine("TextTyper");
@@ -258,10 +270,10 @@ public class ScenarioManager : MonoBehaviour
         for (int i = 0; i < textToType.Length; i++)
         {
             scenarioTextBox.text += textToType[i];
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(textSpeed);
         }
 
-        if (isContinue)
+        if (isContinue || currentScenario.isRestRoom == true)
         {
             SetContinueButton(true);
         }
